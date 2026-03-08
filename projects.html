@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Same Head as index.html -->
+    <meta charset="UTF-8">
+    <title>Nos Projets | PROVECO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { green: '#084851', gold: '#c59b6c', gray: '#e6e7e8', dark: '#1a1a1a' }
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background: white; }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-gold selection:text-white">
+
+    <!-- Navigation (Same as index.html) -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-brand-gray">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12 h-24 flex justify-between items-center">
+             <a href="index.html" class="flex-shrink-0 flex items-center gap-3">
+                <div class="h-10 w-10 bg-brand-green flex items-center justify-center text-brand-gold font-serif text-xl">P</div>
+                <span class="font-serif text-2xl text-brand-green tracking-wide font-semibold">PROVECO</span>
+            </a>
+            <div class="hidden md:flex space-x-10 items-center">
+                <a href="index.html" class="text-sm uppercase tracking-widest hover:text-brand-gold transition-colors">Accueil</a>
+                <a href="projects.html" class="text-sm uppercase tracking-widest text-brand-gold">Projets</a>
+                <a href="contact.html" class="px-6 py-3 border border-brand-green text-brand-green hover:bg-brand-green hover:text-white transition-all text-sm uppercase tracking-wider">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Hero -->
+    <section class="pt-32 pb-12 bg-brand-gray/20">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12">
+            <h1 class="font-serif text-5xl text-brand-green mb-4">Nos Projets</h1>
+            <p class="text-gray-500 max-w-2xl">Découvrez notre portefeuille de projets résidentiels et commerciaux à travers l'Algérie.</p>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="py-8 border-b border-brand-gray sticky top-24 bg-white z-40">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12 flex flex-wrap gap-4 items-center justify-between">
+            <div class="flex gap-2">
+                <button class="px-4 py-2 text-xs uppercase tracking-wider bg-brand-green text-white">Tous</button>
+                <button class="px-4 py-2 text-xs uppercase tracking-wider border border-brand-gray hover:border-brand-green transition-colors">En cours</button>
+                <button class="px-4 py-2 text-xs uppercase tracking-wider border border-brand-gray hover:border-brand-green transition-colors">Livrés</button>
+            </div>
+            <div class="relative">
+                <select class="appearance-none bg-white border border-brand-gray px-4 py-2 pr-8 text-sm focus:outline-none focus:border-brand-green">
+                    <option>Toutes les villes</option>
+                    <option>Alger</option>
+                    <option>Oran</option>
+                    <option>Constantine</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-brand-green">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Grid -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <a href="project-detail.html" class="group block">
+                    <div class="overflow-hidden h-80 relative bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" alt="Project">
+                        <div class="absolute top-4 right-4 bg-brand-gold text-white text-xs px-3 py-1 uppercase tracking-wider">En cours</div>
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="font-serif text-2xl text-brand-green group-hover:text-brand-gold transition-colors">Résidence L'Atlas</h3>
+                        <p class="text-gray-400 text-sm uppercase tracking-wide mt-1">Alger Centre • Appartements</p>
+                    </div>
+                </a>
+
+                <!-- Project Card 2 -->
+                <a href="project-detail.html" class="group block">
+                    <div class="overflow-hidden h-80 relative bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" alt="Project">
+                        <div class="absolute top-4 right-4 bg-brand-green text-white text-xs px-3 py-1 uppercase tracking-wider">Livré</div>
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="font-serif text-2xl text-brand-green group-hover:text-brand-gold transition-colors">Les Jardins d'Oran</h3>
+                        <p class="text-gray-400 text-sm uppercase tracking-wide mt-1">Oran • Résidentiel</p>
+                    </div>
+                </a>
+
+                <!-- Project Card 3 -->
+                <a href="project-detail.html" class="group block">
+                    <div class="overflow-hidden h-80 relative bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" alt="Project">
+                        <div class="absolute top-4 right-4 bg-brand-gold text-white text-xs px-3 py-1 uppercase tracking-wider">Lancement</div>
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="font-serif text-2xl text-brand-green group-hover:text-brand-gold transition-colors">Villa Élégance</h3>
+                        <p class="text-gray-400 text-sm uppercase tracking-wide mt-1">Hydra • Villa</p>
+                    </div>
+                </a>
+                
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="bg-brand-green text-white pt-20 pb-10 border-t border-white/10">
+         <div class="max-w-7xl mx-auto px-6 sm:px-12 text-center">
+             <p class="text-gray-400 text-sm">&copy; 2023 PROVECO Promotion. Tous droits réservés.</p>
+         </div>
+    </footer>
+</body>
+</html>

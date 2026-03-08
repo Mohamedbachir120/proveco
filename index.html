@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROVECO Promotion | Immobilier de Prestige</title>
+    
+    <!-- Fonts & Tailwind -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#084851',
+                            gold: '#c59b6c',
+                            gray: '#e6e7e8',
+                            dark: '#1a1a1a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        
+        /* Custom Utilities */
+        .text-gold-gradient {
+            background: linear-gradient(to right, #c59b6c, #e0b485);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .image-overlay {
+            background: linear-gradient(to bottom, rgba(8, 72, 81, 0.3), rgba(8, 72, 81, 0.7));
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-700 antialiased selection:bg-brand-gold selection:text-white">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-brand-gray transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-3">
+                    <div class="h-10 w-10 bg-brand-green flex items-center justify-center text-brand-gold font-serif text-xl">P</div>
+                    <span class="font-serif text-2xl text-brand-green tracking-wide font-semibold">PROVECO</span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-10 items-center">
+                    <a href="index.html" class="text-sm uppercase tracking-widest hover:text-brand-gold transition-colors duration-300">Accueil</a>
+                    <a href="projects.html" class="text-sm uppercase tracking-widest hover:text-brand-gold transition-colors duration-300">Projets</a>
+                    <a href="about.html" class="text-sm uppercase tracking-widest hover:text-brand-gold transition-colors duration-300">À propos</a>
+                    <a href="contact.html" class="px-6 py-3 border border-brand-green text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300 text-sm uppercase tracking-wider">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-brand-green focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed top-0 right-0 h-full w-72 bg-brand-green transform translate-x-full shadow-2xl md:hidden z-50">
+            <div class="p-6">
+                <button id="close-menu-btn" class="text-white mb-8 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <div class="flex flex-col space-y-6">
+                    <a href="index.html" class="text-white text-lg uppercase tracking-widest border-b border-white/20 pb-2">Accueil</a>
+                    <a href="projects.html" class="text-white text-lg uppercase tracking-widest border-b border-white/20 pb-2">Projets</a>
+                    <a href="about.html" class="text-white text-lg uppercase tracking-widest border-b border-white/20 pb-2">À propos</a>
+                    <a href="contact.html" class="mt-4 bg-brand-gold text-white px-6 py-3 text-center uppercase tracking-widest text-sm">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" alt="Luxury Architecture" class="w-full h-full object-cover">
+            <div class="absolute inset-0 image-overlay"></div>
+        </div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
+            <p class="text-brand-gold uppercase tracking-[0.2em] mb-4 text-sm md:text-base font-semibold">Proveco Promotion</p>
+            <h1 class="font-serif text-5xl md:text-7xl text-white leading-tight mb-8">
+                Construire l’avenir <br/> <span class="italic">avec confiance</span>
+            </h1>
+            <div class="flex flex-col sm:flex-row gap-5 justify-center">
+                <a href="projects.html" class="bg-brand-green text-white px-8 py-4 uppercase tracking-widest text-sm hover:bg-opacity-90 transition-all duration-300 shadow-lg">
+                    Nos Projets
+                </a>
+                <a href="#contact" class="border border-brand-gold text-white px-8 py-4 uppercase tracking-widest text-sm hover:bg-brand-gold hover:text-white transition-all duration-300">
+                    Prendre Rendez-vous
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Us Section (Existing) -->
+    <section id="about" class="py-24 md:py-32 bg-white reveal">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 w-full h-full border border-brand-gold z-0 hidden md:block"></div>
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Architecture" class="relative z-10 w-full shadow-lg grayscale hover:grayscale-0 transition-all duration-500">
+                </div>
+                <div>
+                    <h4 class="text-brand-gold uppercase tracking-widest text-sm mb-2">Notre Vision</h4>
+                    <h2 class="font-serif text-4xl text-brand-green mb-8">L'excellence au cœur de l'habitat</h2>
+                    <p class="text-gray-500 leading-relaxed mb-6 font-light">
+                        PROVECO Promotion redéfinit les standards de l'immobilier en Algérie. Nous créons des lieux de vie alliant esthétique moderne, confort et durabilité.
+                    </p>
+                    <a href="about.html" class="text-brand-green border-b border-brand-green pb-1 hover:text-brand-gold hover:border-brand-gold transition-colors duration-300">Découvrir notre histoire</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Services Section -->
+    <section id="services" class="py-24 bg-brand-gray/30 reveal">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12 text-center">
+            <h4 class="text-brand-gold uppercase tracking-widest text-sm mb-2">Nos Expertises</h4>
+            <h2 class="font-serif text-4xl text-brand-green mb-16">Services Exclusifs</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all duration-500 border-b-4 border-transparent hover:border-brand-gold">
+                    <div class="w-16 h-16 mx-auto bg-brand-green/10 rounded-full flex items-center justify-center mb-6 text-brand-green">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-xl text-brand-green mb-3">Promotion Immobilière</h3>
+                    <p class="text-gray-500 text-sm font-light">Développement de projets résidentiels et commerciaux de haute standing.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-8 shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all duration-500 border-b-4 border-transparent hover:border-brand-gold">
+                    <div class="w-16 h-16 mx-auto bg-brand-green/10 rounded-full flex items-center justify-center mb-6 text-brand-green">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-xl text-brand-green mb-3">Conception Architecturale</h3>
+                    <p class="text-gray-500 text-sm font-light">Designs innovants et plans optimisés par des architectes renommés.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-8 shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all duration-500 border-b-4 border-transparent hover:border-brand-gold">
+                    <div class="w-16 h-16 mx-auto bg-brand-green/10 rounded-full flex items-center justify-center mb-6 text-brand-green">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-xl text-brand-green mb-3">Gestion de Projets</h3>
+                    <p class="text-gray-500 text-sm font-light">Suivi rigoureux des chantiers pour le respect des délais et qualités.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white p-8 shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all duration-500 border-b-4 border-transparent hover:border-brand-gold">
+                    <div class="w-16 h-16 mx-auto bg-brand-green/10 rounded-full flex items-center justify-center mb-6 text-brand-green">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-xl text-brand-green mb-3">Investissement</h3>
+                    <p class="text-gray-500 text-sm font-light">Opportunités d'investissement sécurisées à haut rendement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Apartment 3D Showcase -->
+    <section id="3d-showcase" class="py-24 bg-white overflow-hidden reveal">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12">
+            <div class="text-center mb-12">
+                <h4 class="text-brand-gold uppercase tracking-widest text-sm mb-2">Immersion</h4>
+                <h2 class="font-serif text-4xl text-brand-green">Visite Virtuelle 3D</h2>
+            </div>
+            <div class="relative h-[500px] bg-brand-gray border border-gray-200 shadow-sm group">
+                <!-- Replace src with actual Spline/Sketchfab/Three.js container -->
+                <iframe src="https://my.spline.design/untitled-copy-3d47946847c57d52af5e2d46f29f2a3b/" frameborder="0" width="100%" height="100%" class="absolute inset-0"></iframe>
+                <!-- Fallback Overlay -->
+                <div class="absolute inset-0 bg-brand-green/90 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-500 text-center p-8">
+                    <h3 class="font-serif text-3xl text-white mb-4">Appartement F4 - Alger</h3>
+                    <p class="text-gray-300 mb-6">Découvrez nos agencements intérieurs en réalité virtuelle.</p>
+                    <a href="#" class="bg-brand-gold text-white px-8 py-3 uppercase text-sm tracking-widest">Voir les plans</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Apartment Types -->
+    <section id="apartments" class="py-24 bg-brand-gray/30 reveal">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12">
+            <div class="text-center mb-16">
+                <h4 class="text-brand-gold uppercase tracking-widest text-sm mb-2">Nos Biens</h4>
+                <h2 class="font-serif text-4xl text-brand-green">Types d'Appartements</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- F2 -->
+                <div class="bg-white p-6 border border-gray-100 hover:border-brand-gold transition-all duration-300 group cursor-pointer">
+                    <div class="h-40 bg-brand-gray mb-6 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h3 class="font-serif text-2xl text-brand-green mb-2">F2</h3>
+                    <p class="text-xs text-gray-400 uppercase tracking-wider mb-3">60m² • 2 Pièces</p>
+                    <a href="apartments.html" class="text-brand-gold text-sm uppercase tracking-wider hover:text-brand-green transition-colors">Voir détails &rarr;</a>
+                </div>
+                <!-- F3 -->
+                <div class="bg-white p-6 border border-gray-100 hover:border-brand-gold transition-all duration-300 group cursor-pointer">
+                    <div class="h-40 bg-brand-gray mb-6 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h3 class="font-serif text-2xl text-brand-green mb-2">F3</h3>
+                    <p class="text-xs text-gray-400 uppercase tracking-wider mb-3">85m² • 3 Pièces</p>
+                    <a href="apartments.html" class="text-brand-gold text-sm uppercase tracking-wider hover:text-brand-green transition-colors">Voir détails &rarr;</a>
+                </div>
+                <!-- F4 -->
+                <div class="bg-white p-6 border border-gray-100 hover:border-brand-gold transition-all duration-300 group cursor-pointer">
+                    <div class="h-40 bg-brand-gray mb-6 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h3 class="font-serif text-2xl text-brand-green mb-2">F4</h3>
+                    <p class="text-xs text-gray-400 uppercase tracking-wider mb-3">110m² • 4 Pièces</p>
+                    <a href="apartments.html" class="text-brand-gold text-sm uppercase tracking-wider hover:text-brand-green transition-colors">Voir détails &rarr;</a>
+                </div>
+                <!-- Duplex -->
+                <div class="bg-white p-6 border border-gray-100 hover:border-brand-gold transition-all duration-300 group cursor-pointer">
+                    <div class="h-40 bg-brand-gray mb-6 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h3 class="font-serif text-2xl text-brand-green mb-2">Duplex</h3>
+                    <p class="text-xs text-gray-400 uppercase tracking-wider mb-3">180m² • Vue Panoramique</p>
+                    <a href="apartments.html" class="text-brand-gold text-sm uppercase tracking-wider hover:text-brand-green transition-colors">Voir détails &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects (Existing) -->
+    <section id="projects" class="py-24 bg-white reveal">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <h4 class="text-brand-gold uppercase tracking-widest text-sm mb-2">Portfolio</h4>
+                    <h2 class="font-serif text-4xl text-brand-green">Projets en Vedette</h2>
+                </div>
+                <a href="projects.html" class="hidden md:block text-sm uppercase tracking-widest text-brand-green hover:text-brand-gold transition-colors">Tout voir &rarr;</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="group cursor-pointer bg-white shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all duration-500">
+                    <div class="overflow-hidden h-64 md:h-80 relative">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1000&auto=format&fit=crop" alt="Project Alger" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-brand-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute top-4 right-4 bg-brand-gold text-white text-xs px-3 py-1 uppercase tracking-wider">En cours</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl text-brand-green mb-2 group-hover:text-brand-gold transition-colors">Résidence L'Atlas</h3>
+                        <p class="text-gray-400 text-sm uppercase tracking-wide">Alger Centre • Haut Standing</p>
+                    </div>
+                </div>
+                <!-- Project 2 & 3 similar structure... -->
+                 <div class="group cursor-pointer bg-white shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all duration-500">
+                    <div class="overflow-hidden h-64 md:h-80 relative">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop" alt="Project Oran" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 bg-brand-green text-white text-xs px-3 py-1 uppercase tracking-wider">Livré</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl text-brand-green mb-2 group-hover:text-brand-gold transition-colors">Les Jardins d'Oran</h3>
+                        <p class="text-gray-400 text-sm uppercase tracking-wide">Oran • Résidentiel</p>
+                    </div>
+                </div>
+                 <div class="group cursor-pointer bg-white shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all duration-500">
+                    <div class="overflow-hidden h-64 md:h-80 relative">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop" alt="Project Hydra" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                         <div class="absolute top-4 right-4 bg-brand-gold text-white text-xs px-3 py-1 uppercase tracking-wider">Lancement</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl text-brand-green mb-2 group-hover:text-brand-gold transition-colors">Villa Élégance</h3>
+                        <p class="text-gray-400 text-sm uppercase tracking-wide">Hydra • Villa de Maître</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Statistics Section -->
+    <section class="py-20 bg-brand-green text-white reveal">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="font-serif text-5xl text-brand-gold mb-2 counter" data-target="15">0</div>
+                    <p class="uppercase tracking-widest text-xs text-gray-300">Projets Réalisés</p>
+                </div>
+                <div>
+                    <div class="font-serif text-5xl text-brand-gold mb-2 counter" data-target="800">0</div>
+                    <p class="uppercase tracking-widest text-xs text-gray-300">Appartements</p>
+                </div>
+                <div>
+                    <div class="font-serif text-5xl text-brand-gold mb-2 counter" data-target="10">0</div>
+                    <p class="uppercase tracking-widest text-xs text-gray-300">Années d'Expérience</p>
+                </div>
+                <div>
+                    <div class="font-serif text-5xl text-brand-gold mb-2 counter" data-target="95">0</div>
+                    <p class="uppercase tracking-widest text-xs text-gray-300">% Clients Satisfaits</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Testimonials -->
+    <section id="testimonials" class="py-24 bg-white reveal">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12">
+            <div class="text-center mb-16">
+                <h4 class="text-brand-gold uppercase tracking-widest text-sm mb-2">Témoignages</h4>
+                <h2 class="font-serif text-4xl text-brand-green">Ils Nous Font Confiance</h2>
+            </div>
+            
+            <!-- Simple Scroll Snap Slider -->
+            <div class="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-8 scrollbar-hide">
+                <!-- Testimonial 1 -->
+                <div class="min-w-[300px] md:min-w-[400px] snap-center bg-brand-gray/20 p-8 flex-shrink-0">
+                    <div class="flex items-center mb-4 text-brand-gold">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-gray-600 italic mb-6 font-light">"Un professionnalisme exemplaire. La livraison a été ponctuelle et la qualité des finitions dépasse nos attentes."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full mr-4" alt="Client">
+                        <div>
+                            <h5 class="font-serif text-brand-green">Karim B.</h5>
+                            <p class="text-xs text-gray-400">Acheteur F4, Alger</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="min-w-[300px] md:min-w-[400px] snap-center bg-brand-gray/20 p-8 flex-shrink-0">
+                    <div class="flex items-center mb-4 text-brand-gold">
+                        <!-- Stars SVG -->
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-gray-600 italic mb-6 font-light">"L'équipe de Proveco nous a accompagnés avec transparence. Un investissement rentable et sécurisé."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-12 h-12 rounded-full mr-4" alt="Client">
+                        <div>
+                            <h5 class="font-serif text-brand-green">Samira L.</h5>
+                            <p class="text-xs text-gray-400">Investisseuse, Oran</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: FAQ Section -->
+    <section id="faq" class="py-24 bg-white reveal">
+        <div class="max-w-3xl mx-auto px-6 sm:px-12">
+            <div class="text-center mb-16">
+                <h4 class="text-brand-gold uppercase tracking-widest text-sm mb-2">FAQ</h4>
+                <h2 class="font-serif text-4xl text-brand-green">Questions Fréquentes</h2>
+            </div>
+            <div class="space-y-4">
+                <details class="group border-b border-brand-gray pb-4">
+                    <summary class="flex justify-between items-center cursor-pointer text-brand-green font-semibold py-4">
+                        Comment acheter un appartement ?
+                        <span class="text-brand-gold transition-transform duration-300 group-open:rotate-45">+</span>
+                    </summary>
+                    <p class="text-gray-500 font-light pb-4">
+                        Vous pouvez nous contacter via notre formulaire ou visiter notre bureau. Un conseiller vous guidera à travers les étapes de réservation, signature du contrat et paiement.
+                    </p>
+                </details>
+                <details class="group border-b border-brand-gray pb-4">
+                    <summary class="flex justify-between items-center cursor-pointer text-brand-green font-semibold py-4">
+                        Quels sont les moyens de paiement ?
+                        <span class="text-brand-gold transition-transform duration-300 group-open:rotate-45">+</span>
+                    </summary>
+                    <p class="text-gray-500 font-light pb-4">
+                        Nous acceptons les paiements en espèces, virements bancaires et facilités de paiement échelonné sur la durée de construction.
+                    </p>
+                </details>
+                <details class="group border-b border-brand-gray pb-4">
+                    <summary class="flex justify-between items-center cursor-pointer text-brand-green font-semibold py-4">
+                        Les projets sont-ils livrés clé en main ?
+                        <span class="text-brand-gold transition-transform duration-300 group-open:rotate-45">+</span>
+                    </summary>
+                    <p class="text-gray-500 font-light pb-4">
+                        Oui, tous nos projets sont livrés avec des finitions haut de gamme, prêts à être meublés. Nous incluons la menuiserie, la plomberie et l'électricité.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Existing) -->
+    <section id="contact" class="py-24 bg-brand-gray/30 reveal">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <!-- Info -->
+                <div>
+                    <h4 class="text-brand-gold uppercase tracking-widest text-sm mb-2">Contactez-nous</h4>
+                    <h2 class="font-serif text-4xl text-brand-green mb-8">Discutons de votre projet</h2>
+                    <p class="text-gray-500 mb-10 font-light">Notre équipe d'experts est à votre disposition.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <span class="text-brand-gold mr-4 text-xl">📍</span>
+                            <div>
+                                <h5 class="font-serif text-lg text-brand-green">Bureau Principal</h5>
+                                <p class="text-gray-500 font-light text-sm">123 Rue de la Liberté, Alger, Algérie</p>
+                            </div>
+                        </div>
+                        <!-- Other contact details -->
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="bg-white p-8 md:p-10 border border-brand-gray shadow-sm">
+                    <form class="space-y-6">
+                        <!-- Form fields -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider text-gray-500 mb-2">Nom</label>
+                                <input type="text" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-brand-green transition-colors bg-transparent" placeholder="Votre nom">
+                            </div>
+                             <div>
+                                <label class="block text-xs uppercase tracking-wider text-gray-500 mb-2">Téléphone</label>
+                                <input type="tel" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-brand-green transition-colors bg-transparent" placeholder="Votre numéro">
+                            </div>
+                        </div>
+                        <button type="button" class="w-full bg-brand-green text-white py-4 uppercase tracking-widest text-sm hover:bg-brand-gold transition-colors duration-300 mt-4">
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-green text-white pt-20 pb-10 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1">
+                    <span class="font-serif text-2xl tracking-wide font-semibold block mb-6">PROVECO</span>
+                    <p class="text-gray-400 text-sm leading-relaxed">Développeur immobilier de référence en Algérie.</p>
+                </div>
+                 <div>
+                    <h5 class="text-brand-gold uppercase tracking-widest text-xs mb-6">Navigation</h5>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Accueil</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition-colors">Projets</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">À propos</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h5 class="text-brand-gold uppercase tracking-widest text-xs mb-6">Légal</h5>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Mentions Légales</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Politique de confidentialité</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-brand-gold uppercase tracking-widest text-xs mb-6">Suivez-nous</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-all rounded-full">FB</a>
+                        <a href="#" class="w-10 h-10 border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-all rounded-full">IG</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-xs text-gray-500 text-center">
+                <p>&copy; 2023 PROVECO Promotion. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/21321000000" target="_blank" class="fixed bottom-8 right-8 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors z-50 flex items-center justify-center group">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add("active");
+                }
+            });
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Initial check
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        const runCounters = () => {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / speed;
+
+                if(count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(runCounters, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        };
+
+        // Trigger counter when stats section is in view
+        const statsSection = document.querySelector('.counter').parentElement.parentElement.parentElement;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    runCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(statsSection);
+    </script>
+</body>
+</html>
