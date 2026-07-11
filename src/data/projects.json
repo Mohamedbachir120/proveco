@@ -1,0 +1,242 @@
+[
+  {
+    "slug": "corallium",
+    "name": "Résidence Corallium",
+    "location": "Tixeraïne",
+    "area": "Tixeraïne",
+    "units": "172 Appartements & Commerces",
+    "status": "en_cours",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop",
+    "title": "Résidence Corallium Alger : Programme immobilier haut standing",
+    "metaDescription": "À Tixeraïne, un programme résidentiel moderne de 172 appartements avec commerces et services, pensé pour une nouvelle qualité de vie à Alger.",
+    "heroTagline": "Une nouvelle centralité résidentielle à Alger",
+    "deliveredRange": "Lancé en janvier 2024, en cours de réalisation",
+    "sections": [
+      {
+        "heading": "Une implantation stratégique à Tixeraïne",
+        "level": "h2",
+        "paragraphs": [
+          "Située à Tixeraïne, la Résidence Corallium s'inscrit dans une dynamique urbaine en transformation au sein d'Alger.",
+          "Ce secteur en évolution attire aujourd'hui une nouvelle génération d'acquéreurs à la recherche d'un compromis entre accessibilité, modernité et qualité résidentielle."
+        ]
+      },
+      {
+        "heading": "Une opération résidentielle à grande échelle",
+        "level": "h2",
+        "paragraphs": ["Avec 172 logements, Corallium se distingue par son format structurant, rare dans le segment de la promotion immobilière de luxe à Alger."],
+        "bullets": [
+          "Typologies F3 et F4 adaptées aux usages contemporains",
+          "Ensemble en R+12 avec attique",
+          "Trois niveaux de sous-sol intégrés",
+          "Volumétrie pensée pour optimiser densité et confort"
+        ]
+      },
+      {
+        "heading": "Une ville verticale pensée pour le quotidien",
+        "level": "h2",
+        "bullets": [
+          "Espaces commerciaux en pied d'immeuble",
+          "Accès direct aux commodités essentielles",
+          "Circulation simplifiée au sein du projet",
+          "Centralité interne pour réduire les déplacements"
+        ]
+      },
+      {
+        "heading": "Une position forte dans le marché d'Alger",
+        "level": "h2",
+        "bullets": [
+          "Forte attractivité pour les familles urbaines",
+          "Demande locative soutenue",
+          "Potentiel de valorisation à moyen terme",
+          "Positionnement sur un segment accessible et dynamique"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "poirson",
+    "name": "Résidence Poirson",
+    "location": "El Biar (Saint-Michel)",
+    "area": "El Biar",
+    "units": "Projet Privé de 7 Logements",
+    "status": "finalisation",
+    "image": "https://images.unsplash.com/photo-1600607687940-4e524cb35097?q=80&w=1000&auto=format&fit=crop",
+    "title": "Résidence Poirson à El Biar, signature immobilière d'exception Alger",
+    "metaDescription": "El Biar Saint-Michel : résidence rare de 7 unités, pensée comme un projet privé au cœur du secteur le plus recherché d'Alger.",
+    "heroTagline": "Poirson, une résidence pensée comme un projet privé",
+    "sections": [
+      {
+        "heading": "Un projet qui ne cherche pas à exister partout",
+        "level": "h2",
+        "paragraphs": [
+          "Située dans le secteur Saint-Michel, au sein d'El Biar, à proximité immédiate de l'Institut Cervantes, elle s'inscrit dans un tissu urbain déjà établi, stable et reconnu d'Alger.",
+          "Ici, le projet ne modifie pas le quartier. Il s'y adapte."
+        ]
+      },
+      {
+        "heading": "Une architecture de la réduction volontaire",
+        "level": "h2",
+        "paragraphs": ["Avec seulement sept logements, la logique de conception est simple : retirer le superflu pour renforcer l'essentiel."],
+        "bullets": ["Moins de densité, plus de respiration", "Moins de volume, plus de cohérence", "Moins d'exposition, plus d'intimité"]
+      },
+      {
+        "heading": "Une organisation interne pensée comme une continuité",
+        "level": "h3",
+        "bullets": [
+          "Rez-de-chaussée : espaces adaptés aux usages quotidiens",
+          "Étages intermédiaires : configurations équilibrées",
+          "Dernier niveau : attique conçu comme une unité autonome"
+        ]
+      },
+      {
+        "heading": "Un environnement déjà mature",
+        "level": "h2",
+        "bullets": ["Continuité résidentielle", "Présence d'équipements établis", "Accessibilité maîtrisée", "Environnement calme et structuré"]
+      }
+    ]
+  },
+  {
+    "slug": "savoie",
+    "name": "Résidence Savoie",
+    "location": "Hydra",
+    "area": "Hydra",
+    "units": "Haut Standing (24 Logements)",
+    "status": "livre",
+    "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1000&auto=format&fit=crop",
+    "title": "Résidence Savoie : appartements haut standing à Hydra, Alger",
+    "metaDescription": "Résidence Savoie à Hydra : appartements de luxe, cadre sécurisé et prestations premium au cœur d'Alger.",
+    "heroTagline": "L'élégance résidentielle au cœur d'Alger, à Hydra",
+    "deliveredRange": "Réalisée entre 2019 et 2021",
+    "sections": [
+      {
+        "heading": "Le privilège d'une adresse d'exception",
+        "level": "h2",
+        "paragraphs": [
+          "Idéalement située au cœur d'Hydra, la Résidence Savoie bénéficie d'un emplacement rare dans l'un des secteurs les plus recherchés d'Alger.",
+          "Ce quartier emblématique séduit par son calme, sa sécurité et sa proximité immédiate avec les axes stratégiques, les écoles renommées et les centres d'affaires."
+        ]
+      },
+      {
+        "heading": "Des appartements conçus pour durer",
+        "level": "h3",
+        "paragraphs": ["Composée de 24 logements répartis sur un ensemble harmonieux en R+4 avec sous-sols, la résidence propose des configurations adaptées aux attentes d'une clientèle exigeante :"],
+        "bullets": ["Appartements F3 et F4 aux volumes généreux", "Distribution optimisée des espaces de vie", "Luminosité naturelle dans chaque pièce", "Finitions soignées et matériaux de qualité"]
+      },
+      {
+        "heading": "Un confort absolu au quotidien",
+        "level": "h3",
+        "bullets": ["Parkings en sous-sol sécurisés", "Accès contrôlé et environnement résidentiel calme", "Parties communes élégantes et entretenues", "Isolation thermique et acoustique performante"]
+      },
+      {
+        "heading": "Un investissement sûr et pérenne",
+        "level": "h2",
+        "bullets": ["Emplacement premium à forte demande", "Rareté du foncier à Cité Malki", "Potentiel de valorisation élevé", "Excellente stabilité du marché"]
+      }
+    ]
+  },
+  {
+    "slug": "victoria",
+    "name": "Résidence Victoria",
+    "location": "Hydra (Parmentier)",
+    "area": "Hydra",
+    "units": "8 Appartements Exclusifs",
+    "status": "livre",
+    "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop",
+    "title": "Résidence Victoria à Hydra, Immobilier d'exception à Alger",
+    "metaDescription": "À Hydra, une résidence confidentielle de 8 appartements offrant un cadre de vie exclusif et un investissement patrimonial sécurisé.",
+    "heroTagline": "Un lieu pensé pour ceux qui choisissent sans compromis",
+    "deliveredRange": "Livrée entre 2016 et 2019",
+    "sections": [
+      {
+        "heading": "Vivre Hydra autrement",
+        "level": "h2",
+        "paragraphs": [
+          "Nichée dans le quartier recherché de Parmentier, au cœur d'Alger, la Résidence Victoria s'adresse à une clientèle qui privilégie la qualité à la quantité, la discrétion à l'exposition.",
+          "Ici, vous n'achetez pas un bien. Vous choisissez un cadre de vie."
+        ]
+      },
+      {
+        "heading": "Des espaces conçus pour durer",
+        "level": "h3",
+        "bullets": [
+          "Typologies F3 et F4 pensées pour un usage réel",
+          "Attique F5 offrant un niveau de confort supérieur",
+          "Équilibre entre volumes, fonctionnalité et circulation",
+          "Architecture sobre, intemporelle"
+        ]
+      },
+      {
+        "heading": "Un choix rationnel dans un marché émotionnel",
+        "level": "h2",
+        "bullets": ["Offre limitée → pression de la demande", "Emplacement stable → sécurité patrimoniale", "Produit rare → meilleure liquidité à la revente"]
+      }
+    ]
+  },
+  {
+    "slug": "hydra-32",
+    "name": "Résidence Hydra Prestige",
+    "location": "Hydra (Éveil Scolaire)",
+    "area": "Hydra",
+    "units": "32 Appartements & Duplex",
+    "status": "livre",
+    "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1000&auto=format&fit=crop",
+    "title": "Résidence de prestige à Hydra : Appartements et duplex haut standing",
+    "metaDescription": "Résidence d'exception avec appartements haut standing, espaces généreux et prestations premium dans un cadre exclusif.",
+    "heroTagline": "L'adresse où le standing devient une évidence",
+    "deliveredRange": "Réalisée entre 2019 et 2023",
+    "sections": [
+      {
+        "heading": "Une signature résidentielle au cœur d'Hydra",
+        "level": "h2",
+        "paragraphs": [
+          "Dans l'un des environnements les plus convoités d'Hydra, à quelques pas de l'école Éveil Scolaire, cette résidence incarne une vision exigeante de l'immobilier contemporain à Alger."
+        ]
+      },
+      {
+        "heading": "Une architecture fonctionnelle et élégante",
+        "level": "h3",
+        "paragraphs": ["Déployée sur un ensemble en R+8 avec trois niveaux de sous-sol, la résidence propose 32 appartements pensés pour accompagner différents styles de vie."],
+        "bullets": ["Configurations F2, F3 et F4 adaptées à chaque besoin", "Organisation fluide des espaces jour / nuit", "Volumes équilibrés favorisant le confort quotidien", "Architecture sobre et contemporaine"]
+      },
+      {
+        "heading": "Une logique patrimoniale solide",
+        "level": "h2",
+        "bullets": ["Demande constante sur le secteur", "Stabilité des prix sur le long terme", "Attractivité auprès des profils solvables", "Facilité de revente ou de mise en location"]
+      }
+    ]
+  },
+  {
+    "slug": "hydra-27",
+    "name": "Résidence Hydra Éveil",
+    "location": "Hydra",
+    "area": "Hydra",
+    "units": "27 Unités Raffinées",
+    "status": "livre",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop",
+    "title": "Résidence de luxe à Hydra – Appartements haut standing Alger",
+    "metaDescription": "À Hydra, découvrez une résidence haut standing avec appartements raffinés et duplex premium dans un cadre exclusif à Alger.",
+    "heroTagline": "Vivre Hydra autrement, une signature résidentielle d'exception",
+    "deliveredRange": "Réalisée entre 2013 et 2015",
+    "sections": [
+      {
+        "heading": "Une adresse rare au cœur d'Hydra",
+        "level": "h2",
+        "paragraphs": [
+          "Au sein d'Hydra, l'une des localisations les plus exclusives d'Alger, cette résidence incarne une vision contemporaine du haut standing.",
+          "À proximité immédiate de l'école Éveil Scolaire, elle bénéficie d'un environnement résidentiel recherché, alliant discrétion, sécurité et accessibilité."
+        ]
+      },
+      {
+        "heading": "Des appartements aux standards élevés",
+        "level": "h3",
+        "paragraphs": ["Avec 27 unités réparties sur un ensemble en R+6 avec sous-sol, la résidence propose une sélection raffinée d'appartements :"],
+        "bullets": ["F3 et F4 conçus pour un confort optimal", "Agencements modernes et fluides", "Espaces de vie lumineux et ouverts", "Finitions soignées dans les moindres détails"]
+      },
+      {
+        "heading": "Une valeur patrimoniale durable",
+        "level": "h2",
+        "bullets": ["Emplacement premium à forte demande", "Valorisation continue du secteur de Hydra", "Rareté des biens en immobilier haut standing", "Sécurité d'un actif tangible"]
+      }
+    ]
+  }
+]
