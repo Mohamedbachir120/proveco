@@ -8,7 +8,7 @@ export default defineConfig({
   // Note: If you are deploying to a GitHub Pages repository 
   // (e.g., https://username.github.io/repo-name/), you MUST 
   // uncomment the line below and put your repo name in it:
-  // base: '/your-repo-name/',
+  base: '/proveco/',
   
   plugins: [
     react(), 
