@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { getProjectBySlug } from "../services/projects.service";
 import type { Project } from "../types/project";
 import { STATUS_LABELS } from "../types/project";
+import HeroGallery from "../components/HeroGalery";
 
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -13,6 +14,20 @@ export default function ProjectDetail() {
     setProject(undefined);
     getProjectBySlug(slug).then((p) => setProject(p ?? null));
   }, [slug]);
+
+  // Page <title> and meta description now come from the SEO fields on each
+  // project instead of staying on whatever the previous page set.
+  useEffect(() => {
+    if (!project) return;
+    document.title = project.title;
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.setAttribute("name", "description");
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute("content", project.metaDescription);
+  }, [project]);
 
   if (project === undefined) {
     return (
@@ -36,10 +51,14 @@ export default function ProjectDetail() {
   return (
     <>
       <header className="relative h-[70vh] flex items-end overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img src={project.image} alt={project.name} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 image-overlay" />
-        </div>
+        {project.gallery && project.gallery.length > 0 ? (
+          <HeroGallery images={project.gallery} />
+        ) : (
+          <div className="absolute inset-0 z-0">
+            <img src={project.image} alt={project.imageAlt} className="w-full h-full object-cover" />
+            <div className="absolute inset-0 image-overlay" />
+          </div>
+        )}
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 pb-16 w-full">
           <span className="text-brand-gold uppercase tracking-[0.3em] text-xs mb-4 block">
             {STATUS_LABELS[project.status]} • {project.location}
@@ -104,6 +123,33 @@ export default function ProjectDetail() {
           })}
         </div>
       </section>
+
+      {project.gallery && project.gallery.length > 0 && (
+        <section className="py-20 bg-brand-gray/10">
+          <div className="max-w-7xl mx-auto px-6 sm:px-12">
+            <span className="text-brand-gold uppercase tracking-[0.3em] text-xs mb-4 block">Galerie</span>
+            <h2 className="font-serif text-3xl text-brand-green mb-10">{project.name} en images</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {project.gallery.map((img, i) => (
+                <figure key={i} className="group overflow-hidden">
+                  <div className="overflow-hidden aspect-[4/3]">
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      title={img.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  {img.caption && (
+                    <figcaption className="text-gray-500 text-sm font-light mt-3">{img.caption}</figcaption>
+                  )}
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="py-16 bg-brand-gray/20 text-center">
         <div className="max-w-2xl mx-auto px-6">

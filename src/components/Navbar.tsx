@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import logo from './../assets/logo.png'
 
 const NAV_LINKS = [
   { to: "/", label: "Accueil" },
@@ -14,13 +15,8 @@ export default function Navbar() {
     <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-brand-gray transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <div className="flex justify-between items-center h-24">
-          <Link to="/" className="flex-shrink-0 flex items-center gap-3">
-            <div className="h-10 w-10 bg-brand-green flex items-center justify-center text-brand-gold font-serif text-xl">
-              P
-            </div>
-            <span className="font-serif text-2xl text-brand-green tracking-wide font-semibold">
-              PROVECO
-            </span>
+          <Link to="/" className="flex-shrink-0 flex items-center gap-3 my-3">
+            <img src={logo} alt="Proveco logo" width={80} />
           </Link>
 
           <div className="hidden md:flex space-x-10 items-center">

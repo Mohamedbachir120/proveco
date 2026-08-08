@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
-
+import logoWhite from "./../assets/logo-white.png"
 export default function Footer() {
   return (
     <footer className="bg-brand-green text-white pt-20 pb-10 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1">
-            <span className="font-serif text-2xl tracking-wide font-semibold block mb-6">
-              PROVECO
-            </span>
+            <img src={logoWhite} alt="Logo proveco" width={100} />
             <p className="text-gray-400 text-sm leading-relaxed">
               Développeur immobilier de référence en Algérie.
             </p>

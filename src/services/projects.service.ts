@@ -1,4 +1,4 @@
-import projectsData from "../data/projects.json";
+import { projects as projectsData } from "../data/projects.ts";
 import type { Project } from "../types/project";
 
 // TODO: once the backend is live, set this from an env var, e.g.
@@ -7,7 +7,9 @@ import type { Project } from "../types/project";
 /**
  * Returns all projects.
  *
- * CURRENT: reads from local JSON (src/data/projects.json).
+ * CURRENT: reads from the local TS module (src/data/projects.data.ts) —
+ * this is a .ts file, not .json, because it imports the actual image
+ * assets from src/assets so Vite can bundle/hash them.
  * LATER: replace the body with a fetch call, e.g.
  *
  *   const res = await fetch(`${API_URL}/projects`);
@@ -15,7 +17,7 @@ import type { Project } from "../types/project";
  *   return res.json();
  */
 export async function getProjects(): Promise<Project[]> {
-  return projectsData as Project[];
+  return projectsData;
 }
 
 /**
