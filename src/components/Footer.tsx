@@ -8,16 +8,16 @@ export default function Footer() {
           <div className="col-span-1">
             <img src={logoWhite} alt="Logo proveco" width={100} />
             <p className="text-gray-400 text-sm leading-relaxed">
-              Développeur immobilier de référence en Algérie.
+              Promoteur immobilier de référence en Algérie.
             </p>
           </div>
           <div>
             <h5 className="text-brand-gold uppercase tracking-widest text-xs mb-6">Navigation</h5>
             <ul className="space-y-3 text-sm text-gray-300">
               <li><Link to="/" className="hover:text-white transition-colors">Accueil</Link></li>
-              <li><Link to="/projects" className="hover:text-white transition-colors">Projets</Link></li>
-              <li><Link to="/about" className="hover:text-white transition-colors">À propos</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li><Link to="/projects" className="hover:text-white transition-colors">Nos réalisations</Link></li>
+              <li><Link to="/about" className="hover:text-white transition-colors">Notre vision</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Échangeons</Link></li>
             </ul>
           </div>
           <div>

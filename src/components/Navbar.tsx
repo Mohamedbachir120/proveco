@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { to: "/", label: "Accueil" },
   { to: "/projects", label: "Nos adresses" },
   { to: "/about", label: "Notre vision" },
+  { to: "/#investir", label: "Investir en Algérie" },
 ];
 
 export default function Navbar() {

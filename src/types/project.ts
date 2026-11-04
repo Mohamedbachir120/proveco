@@ -1,4 +1,4 @@
-export type ProjectStatus = "en_cours" | "livre" | "finalisation" | "lancement";
+export type ProjectStatus = "en_cours" | "livre" | "finalisation" | "lancement" | "a_venir";
 // Merge these additions into your existing src/types/project.ts.
 // I don't have your current file, so don't overwrite it blindly —
 // keep your existing ProjectStatus / STATUS_LABELS if they already exist,
@@ -46,4 +46,5 @@ export const STATUS_LABELS: Record<ProjectStatus, string> = {
   livre: "Livré",
   finalisation: "Finalisation",
   lancement: "Lancement",
+  a_venir: "À venir",
 };

@@ -1,3 +1,5 @@
+import savoieFacade from "../assets/architecture-facade-residence-savoie-hydra.jpeg";
+
 export default function About() {
   return (
     <>
@@ -27,9 +29,9 @@ export default function About() {
             <div className="relative sticky top-8">
               <div className="absolute -top-4 -left-4 w-full h-full border border-brand-gold z-0 hidden md:block" />
               <img
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
-                alt="Architecture PROVECO"
-                className="relative z-10 w-full shadow-lg grayscale hover:grayscale-0 transition-all duration-500"
+                src={savoieFacade}
+                alt="Architecture de la Résidence Savoie à Hydra par PROVECO"
+                className="relative z-10 w-full shadow-lg hover:scale-[1.02] transition-all duration-500"
               />
             </div>
 

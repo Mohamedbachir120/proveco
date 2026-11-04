@@ -32,13 +32,23 @@ import victoriaAngle from "../assets/facade-angle-residence-victoria-hydra.jpeg"
 import victoriaAttique from "../assets/attique-terrasse-residence-victoria-hydra.jpeg";
 import victoriaTerrasse from "../assets/terrasse-attique-residence-victoria-hydra.png";
 
+// --- Madeleine 1 ---
+import madeleine1Facade from "../assets/facade-residence-madeleine-1-hydra.png";
+import madeleine1Entree from "../assets/entree-residence-madeleine-1-hydra.png";
+import madeleine1Angle from "../assets/vue-angle-residence-madeleine-1-hydra.jpeg";
+
+// --- Madeleine 2 ---
+import madeleine2Facade from "../assets/facade-residence-madeleine-2-hydra.png";
+import madeleine2Balcons from "../assets/balcons-residence-madeleine-2-hydra.png";
+import madeleine2Entree from "../assets/entree-securisee-residence-madeleine-2-hydra.jpeg";
+
 export const projects: Project[] = [
   {
     slug: "corallium",
     name: "Résidence Corallium",
     location: "Tixeraïne",
     area: "Tixeraïne",
-    units: "172 Appartements & Commerces",
+    units: "172 Appartements & Services",
     status: "en_cours",
     image: coralliumExterieure,
     imageAlt:
@@ -90,7 +100,7 @@ export const projects: Project[] = [
     ],
     title: "Résidence Corallium Alger : Programme immobilier haut standing",
     metaDescription:
-      "À Tixeraïne, un programme résidentiel moderne de 172 appartements avec commerces et services, pensé pour une nouvelle qualité de vie à Alger.",
+      "À Tixeraïne, un programme résidentiel moderne de 172 appartements avec des espaces de services de premier plan, pensé pour une nouvelle qualité de vie à Alger.",
     heroTagline: "Une nouvelle centralité résidentielle à Alger",
     deliveredRange: "Lancé en janvier 2024, en cours de réalisation",
     sections: [
@@ -119,7 +129,7 @@ export const projects: Project[] = [
         heading: "Une ville verticale pensée pour le quotidien",
         level: "h2",
         bullets: [
-          "Espaces commerciaux en pied d'immeuble",
+          "Espaces de services dédiés en pied d'immeuble",
           "Accès direct aux commodités essentielles",
           "Circulation simplifiée au sein du projet",
           "Centralité interne pour réduire les déplacements",
@@ -326,18 +336,184 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "madeleine-1",
+    name: "Résidence Madeleine 1",
+    location: "Hydra",
+    area: "Hydra",
+    units: "27 Logements & Duplex",
+    status: "livre",
+    image: madeleine1Facade,
+    imageAlt: "Façade de la Résidence Madeleine 1 à Hydra avec balcons contemporains",
+    gallery: [
+      {
+        src: madeleine1Facade,
+        alt: "Façade de la Résidence Madeleine 1 à Hydra avec balcons contemporains",
+        title: "Façade principale de la Résidence Madeleine 1",
+        caption: "Architecture extérieure de la Résidence Madeleine 1, située au cœur d'Hydra à proximité de l'école Éveil Scolaire.",
+      },
+      {
+        src: madeleine1Entree,
+        alt: "Entrée principale et hall de la Résidence Madeleine 1 à Hydra",
+        title: "Entrée de la Résidence Madeleine 1",
+        caption: "Accès piéton et entrée sécurisée de la Résidence Madeleine 1 à Hydra.",
+      },
+      {
+        src: madeleine1Angle,
+        alt: "Vue d'angle extérieure de la Résidence Madeleine 1 à Hydra",
+        title: "Vue d'angle de la Résidence Madeleine 1",
+        caption: "Perspective mettant en valeur les volumes harmonieux et les finitions soignées de la Résidence Madeleine 1.",
+      },
+    ],
+    title: "Résidence de luxe à Hydra Appartements haut standing Alger",
+    metaDescription: "À Hydra, découvrez une résidence haut standing avec appartements raffinés et duplex premium dans un cadre exclusif à Alger.",
+    heroTagline: "Vivre Hydra autrement, Une signature résidentielle d'exception",
+    deliveredRange: "Réalisée entre 2013 et 2015",
+    sections: [
+      {
+        heading: "Une adresse rare au cœur d'Hydra",
+        level: "h2",
+        paragraphs: [
+          "Au sein d'Hydra, l'une des localisations les plus exclusives d'Alger, cette résidence incarne une vision contemporaine du haut standing.",
+          "À proximité immédiate de l'école Éveil Scolaire, elle bénéficie d'un environnement résidentiel recherché, alliant discrétion, sécurité et accessibilité.",
+          "Une adresse confidentielle destinée à ceux qui privilégient l'excellence.",
+        ],
+      },
+      {
+        heading: "Une architecture pensée pour l'exigence",
+        level: "h2",
+        paragraphs: [
+          "Cette réalisation s'inscrit dans une logique de promotion immobilière de luxe à Alger, où l'équilibre entre esthétique, fonctionnalité et durabilité est parfaitement maîtrisé.",
+        ],
+      },
+      {
+        heading: "Des appartements aux standards élevés",
+        level: "h3",
+        paragraphs: [
+          "Composée de 27 unités réparties sur un ensemble harmonieux en R+6 avec sous-sol, la résidence propose une sélection raffinée d'appartements :",
+        ],
+        bullets: [
+          "Appartements F3 et F4 conçus pour un confort optimal",
+          "Agencements modernes et fluides",
+          "Espaces de vie lumineux et ouverts",
+          "Finitions soignées dans les moindres détails",
+          "Au sommet, un duplex d'exception vient sublimer l'ensemble",
+        ],
+      },
+      {
+        heading: "Une expérience de confort maîtrisée",
+        level: "h3",
+        bullets: [
+          "Stationnement sécurisé en sous-sol",
+          "Accès contrôlé garantissant tranquillité et intimité",
+          "Parties communes élégantes et durables",
+          "Conception favorisant bien-être thermique et acoustique",
+        ],
+      },
+      {
+        heading: "Le privilège d'un quotidien simplifié",
+        level: "h2",
+        bullets: [
+          "Proximité immédiate des établissements scolaires réputés",
+          "Accès rapide aux commodités et services essentiels",
+          "Connexion fluide aux principaux axes du Grand Alger",
+        ],
+      },
+      {
+        heading: "Une réalisation livrée, une confiance établie",
+        level: "h2",
+        bullets: [
+          "Projet livré et opérationnel",
+          "Qualité de construction éprouvée",
+          "Environnement résidentiel mature",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "madeleine-2",
+    name: "Résidence Madeleine 2",
+    location: "Hydra",
+    area: "Hydra",
+    units: "32 Logements & Duplex",
+    status: "livre",
+    image: madeleine2Facade,
+    imageAlt: "Façade moderne de la Résidence Madeleine 2 à Hydra avec balcons filants",
+    gallery: [
+      {
+        src: madeleine2Facade,
+        alt: "Façade moderne de la Résidence Madeleine 2 à Hydra avec balcons filants",
+        title: "Façade principale de la Résidence Madeleine 2",
+        caption: "Vue de la façade principale de la Résidence Madeleine 2 à Hydra, alliant modernité et élégance.",
+      },
+      {
+        src: madeleine2Balcons,
+        alt: "Détail des balcons et ouvertures de la Résidence Madeleine 2 à Hydra",
+        title: "Balcons et volumes de Madeleine 2",
+        caption: "Les balcons et loggias aux lignes soignées offrant une belle luminosité aux appartements.",
+      },
+      {
+        src: madeleine2Entree,
+        alt: "Entrée sécurisée et hall d'accueil de la Résidence Madeleine 2 à Hydra",
+        title: "Entrée sécurisée de la Résidence Madeleine 2",
+        caption: "Hall d'entrée sécurisé et aménagements des parties communes haut standing.",
+      },
+    ],
+    title: "Résidence de prestige à Hydra : Appartements et duplex de haut standing",
+    metaDescription: "Résidence d'exception avec appartements de haut standing, espaces généreux et prestations premium dans un cadre exclusif.",
+    heroTagline: "L'adresse où le standing devient une évidence",
+    deliveredRange: "Réalisée entre 2019 et 2023",
+    sections: [
+      {
+        heading: "Une signature résidentielle au cœur d'Hydra",
+        level: "h2",
+        paragraphs: [
+          "Dans l'un des environnements les plus convoités d'Hydra, à quelques pas de l'école Éveil Scolaire, cette résidence incarne une vision exigeante de l'immobilier contemporain à Alger.",
+          "Pensée pour une clientèle en quête de discrétion et de qualité, elle s'intègre avec élégance dans ce secteur privilégié.",
+        ],
+      },
+      {
+        heading: "Une conception pensée pour la vie réelle",
+        level: "h2",
+        paragraphs: [
+          "La résidence réunit 32 logements répartis sur un ensemble en R+6 avec sous-sol, offrant une diversité de configurations adaptées aux modes de vie contemporains :",
+        ],
+        bullets: [
+          "Appartements F3 et F4 fonctionnels et lumineux",
+          "Duplex exclusif au dernier niveau",
+          "Organisation fluide des espaces jour / nuit",
+          "Volumes équilibrés favorisant le confort quotidien",
+          "Architecture sobre et contemporaine",
+        ],
+      },
+      {
+        heading: "Le confort comme standard, pas comme option",
+        level: "h3",
+        bullets: [
+          "Stationnement sécurisé sur plusieurs niveaux",
+          "Circulation fluide et accès maîtrisés",
+          "Parties communes fonctionnelles et durables",
+          "Conception favorisant isolation et intimité",
+        ],
+      },
+      {
+        heading: "Un quotidien maîtrisé",
+        level: "h2",
+        bullets: [
+          "Proximité immédiate des établissements scolaires",
+          "Accès rapide aux zones professionnelles",
+          "Présence de commerces et services essentiels à quelques minutes",
+        ],
+      },
+      {
+        heading: "Une résidence récente, déjà ancrée",
+        level: "h2",
+        bullets: [
+          "Construction moderne",
+          "Cadre résidentiel structuré",
+          "Un bien déjà réalisé, sans attente liée à un chantier en cours",
+        ],
+      },
+    ],
+  },
 ];
-
-// NOTE — Madeleine 1 & Madeleine 2:
-// Your SEO doc + src/assets both have image sets for "Madeleine 1" and
-// "Madeleine 2" (3 renamed images each, see rename-assets.sh), but there's
-// no matching entry in the original projects.json, and the two unmatched
-// entries there — "hydra-32" (Résidence Hydra Prestige) and "hydra-27"
-// (Résidence Hydra Éveil) — don't have any local assets or SEO text of
-// their own. I left them untouched below rather than guess:
-//   - if Madeleine 1/2 ARE hydra-32/hydra-27 under their real commercial
-//     names, tell me and I'll rename those entries + wire in the images
-//   - if they're two new projects, I'll need their real units/status/
-//     deliveredRange/description sections — the SEO doc only gives me
-//     image captions, not project copy, and I don't want to invent numbers
-//     for a client-facing site.

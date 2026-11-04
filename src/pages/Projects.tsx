@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { getProjects } from "../services/projects.service";
-import type { Project, ProjectStatus } from "../types/project";
+import type { Project } from "../types/project";
 import ProjectCard from "../components/ProjectCard";
 
-type StatusFilter = "all" | ProjectStatus;
+type StatusFilter = "all" | "en_cours" | "livre" | "a_venir";
 
 export default function Projects() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -26,8 +26,9 @@ export default function Projects() {
     return projects.filter((p) => {
       const statusMatch =
         statusFilter === "all" ||
-        (statusFilter === "en_cours" && (p.status === "en_cours" || p.status === "finalisation" || p.status === "lancement")) ||
-        p.status === statusFilter;
+        (statusFilter === "en_cours" && (p.status === "en_cours" || p.status === "finalisation")) ||
+        (statusFilter === "livre" && p.status === "livre") ||
+        (statusFilter === "a_venir" && (p.status === "a_venir" || p.status === "lancement"));
       const locationMatch = locationFilter === "all" || p.area === locationFilter;
       return statusMatch && locationMatch;
     });
@@ -40,15 +41,15 @@ export default function Projects() {
           <span className="text-brand-gold uppercase tracking-[0.3em] text-xs mb-4 block">Portfolio Immobilier</span>
           <h1 className="font-serif text-5xl md:text-6xl text-brand-green mb-6">Nos réalisations d'exception</h1>
           <p className="text-gray-600 max-w-2xl text-lg leading-relaxed">
-            De Hydra à El Biar, PROVECO façonne le paysage urbain d'Alger à travers des résidences pensées comme
-            des actifs patrimoniaux durables et des lieux de vie raffinés.
+            De Hydra à El Biar, en passant par Tixeraïne, PROVECO façonne le paysage urbain d'Alger à travers des
+            résidences pensées comme des actifs patrimoniaux durables et des lieux de vie raffinés.
           </p>
         </div>
       </section>
 
       <section className="py-6 border-b border-brand-gray sticky top-24 bg-white z-40">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 flex flex-wrap gap-4 items-center justify-between">
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setStatusFilter("all")}
               className={`px-6 py-2 text-xs uppercase tracking-wider transition-colors ${
@@ -73,6 +74,14 @@ export default function Projects() {
             >
               Livrés
             </button>
+            <button
+              onClick={() => setStatusFilter("a_venir")}
+              className={`px-6 py-2 text-xs uppercase tracking-wider transition-colors ${
+                statusFilter === "a_venir" ? "bg-brand-green text-white" : "border border-brand-gray hover:border-brand-green"
+              }`}
+            >
+              À venir
+            </button>
           </div>
           <div className="relative">
             <select
@@ -80,7 +89,7 @@ export default function Projects() {
               onChange={(e) => setLocationFilter(e.target.value)}
               className="appearance-none bg-white border border-brand-gray px-6 py-2 pr-10 text-sm focus:outline-none focus:border-brand-green cursor-pointer uppercase tracking-wider"
             >
-              <option value="all">Toutes les localisations</option>
+              <option value="all">Localisation : Toutes</option>
               {locations.map((loc) => (
                 <option key={loc} value={loc}>
                   {loc}
