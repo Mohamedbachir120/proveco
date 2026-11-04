@@ -91,11 +91,10 @@ export default function Home() {
           <p className="text-brand-gold uppercase tracking-[0.2em] mb-4 text-sm md:text-base font-semibold">
             Proveco Promotion
           </p>
-          <h2 className="font-serif text-4xl md:text-6xl text-white leading-tight mb-8">
-            L’investissement en Algérie. <br />
-            Le haut de gamme, <br />
-            <span className="italic"> par conviction.</span>
-          </h2>
+          <h1 className="font-serif text-4xl md:text-6xl text-white leading-tight mb-8">
+            Pas pour tout le monde, <br />
+            <span className="italic">et c’est précisément ce qui nous définit.</span>
+          </h1>
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link
               to="/projects"
@@ -133,10 +132,11 @@ export default function Home() {
                 Ce qui nous distingue
               </h2>
               <p className="text-gray-500 leading-relaxed mb-6 font-light">
-                PROVECO Promotion redéfinit les standards de l'immobilier en
-                Algérie. Avec une exigence constante sur la qualité, la pérennité
-                des matériaux et le respect des délais, nous créons des actifs patrimoniaux
-                durables et des lieux de vie raffinés.
+                L’immobilier évolue. Les standards aussi. Une nouvelle génération
+                d’acquéreurs ne cherche plus simplement à acheter, mais à faire un
+                choix cohérent, durable et maîtrisé. PROVECO s’inscrit dans cette
+                évolution avec rigueur, sélection stricte des emplacements et
+                exigence constante dans l’exécution.
               </p>
               <Link
                 to="/about"

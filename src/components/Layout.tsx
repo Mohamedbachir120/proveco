@@ -8,8 +8,17 @@ export default function Layout() {
   const location = useLocation();
 
   useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const elem = document.querySelector(location.hash);
+        if (elem) {
+          elem.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      return;
+    }
     window.scrollTo(0, 0);
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   return (
     <div className="bg-white text-gray-700 antialiased">

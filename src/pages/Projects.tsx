@@ -38,8 +38,10 @@ export default function Projects() {
     <>
       <section className="pt-40 pb-16 bg-brand-gray/20">
         <div className="max-w-7xl mx-auto px-6 sm:px-12">
-          <span className="text-brand-gold uppercase tracking-[0.3em] text-xs mb-4 block">Portfolio Immobilier</span>
-          <h1 className="font-serif text-5xl md:text-6xl text-brand-green mb-6">Nos réalisations d'exception</h1>
+          <span className="text-brand-gold uppercase tracking-[0.2em] text-xs mb-3 block font-semibold">
+            Des résidences d'exception implantées dans les emplacements les plus stratégiques d'Alger
+          </span>
+          <h1 className="font-serif text-5xl md:text-6xl text-brand-green mb-6">Nos réalisations</h1>
           <p className="text-gray-600 max-w-2xl text-lg leading-relaxed">
             De Hydra à El Biar, en passant par Tixeraïne, PROVECO façonne le paysage urbain d'Alger à travers des
             résidences pensées comme des actifs patrimoniaux durables et des lieux de vie raffinés.
