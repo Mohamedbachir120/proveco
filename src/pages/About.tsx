@@ -1,11 +1,21 @@
+import { Link } from "react-router-dom";
 import savoieFacade from "../assets/architecture-facade-residence-savoie-hydra.jpeg";
+import { useInView } from "../hooks/useInView";
 
 export default function About() {
+  const introView = useInView({ threshold: 0.1 });
+  const pillarsView = useInView({ threshold: 0.15 });
+
   return (
     <>
       {/* Section Introduction */}
       <section className="pt-40 pb-16 bg-brand-gray/20">
-        <div className="max-w-7xl mx-auto px-6 sm:px-12">
+        <div
+          ref={introView.ref}
+          className={`max-w-7xl mx-auto px-6 sm:px-12 reveal-fade-up ${
+            introView.isVisible ? "is-visible" : ""
+          }`}
+        >
           <span className="text-brand-gold uppercase tracking-[0.3em] text-xs mb-4 block">
             Notre conviction
           </span>
@@ -21,22 +31,33 @@ export default function About() {
       </section>
 
       {/* Section Détails & Engagements */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 sm:px-12">
+      <section className="py-24 bg-white overflow-hidden">
+        <div
+          ref={pillarsView.ref}
+          className="max-w-7xl mx-auto px-6 sm:px-12"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
             
             {/* Colonne Gauche : Visuel */}
-            <div className="relative sticky top-8">
-              <div className="absolute -top-4 -left-4 w-full h-full border border-brand-gold z-0 hidden md:block" />
+            <div
+              className={`relative sticky top-8 reveal-fade-up ${
+                pillarsView.isVisible ? "is-visible" : ""
+              }`}
+            >
+              <div className="absolute -top-4 -left-4 w-full h-full border border-brand-gold/60 z-0 hidden md:block transition-transform duration-700 hover:-translate-x-1 hover:-translate-y-1" />
               <img
                 src={savoieFacade}
                 alt="Architecture de la Résidence Savoie à Hydra par PROVECO"
-                className="relative z-10 w-full shadow-lg hover:scale-[1.02] transition-all duration-500"
+                className="relative z-10 w-full shadow-xl hover:scale-[1.02] transition-all duration-700"
               />
             </div>
 
             {/* Colonne Droite : Textes réorganisés */}
-            <div>
+            <div
+              className={`reveal-fade-up delay-150 ${
+                pillarsView.isVisible ? "is-visible" : ""
+              }`}
+            >
               <span className="text-brand-gold uppercase tracking-widest text-xs font-semibold mb-3 block">
                 L’immobilier évolue. Les standards aussi.
               </span>
@@ -49,7 +70,7 @@ export default function About() {
 
               {/* Piliers d'informations basés sur votre contenu */}
               <div className="space-y-8">
-                <div className="border-l-2 border-brand-gold/30 pl-4">
+                <div className="border-l-2 border-brand-gold/40 hover:border-brand-gold pl-5 py-1 transition-all duration-300">
                   <h5 className="text-brand-green font-serif text-lg font-medium mb-2">
                     Une approche rigoureuse
                   </h5>
@@ -61,7 +82,7 @@ export default function About() {
                   </p>
                 </div>
 
-                <div className="border-l-2 border-brand-gold/30 pl-4">
+                <div className="border-l-2 border-brand-gold/40 hover:border-brand-gold pl-5 py-1 transition-all duration-300">
                   <h5 className="text-brand-green font-serif text-lg font-medium mb-2">
                     Une conception cohérente
                   </h5>
@@ -72,7 +93,7 @@ export default function About() {
                   </p>
                 </div>
 
-                <div className="border-l-2 border-brand-gold/30 pl-4">
+                <div className="border-l-2 border-brand-gold/40 hover:border-brand-gold pl-5 py-1 transition-all duration-300">
                   <h5 className="text-brand-green font-serif text-lg font-medium mb-2">
                     Un accompagnement serein
                   </h5>
@@ -83,6 +104,15 @@ export default function About() {
                     stratégique qu’évident.
                   </p>
                 </div>
+              </div>
+
+              <div className="pt-10">
+                <Link
+                  to="/contact"
+                  className="inline-block bg-brand-green text-white px-8 py-4 uppercase tracking-widest text-xs hover:bg-brand-gold transition-colors duration-300 font-medium btn-luxury cursor-pointer"
+                >
+                  Échanger avec notre équipe
+                </Link>
               </div>
             </div>
 

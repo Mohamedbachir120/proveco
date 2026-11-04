@@ -16,62 +16,221 @@ html {
 
 body {
   background: white;
-}
-
-.text-gold-gradient {
-  background: linear-gradient(to right, #c59b6c, #e0b485);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.image-overlay {
-  background: linear-gradient(to bottom, rgba(8, 72, 81, 0.3), rgba(8, 72, 81, 0.7));
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-}
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+  overflow-x: hidden;
 }
 
 ::selection {
   background: var(--color-brand-gold);
   color: white;
 }
-/* Add this to your global stylesheet (e.g. src/index.css), wherever
-   `.image-overlay` is already defined. */
 
-   .hero-gallery-slide {
+.text-gold-gradient {
+  background: linear-gradient(135deg, #c59b6c 0%, #ecd0ab 50%, #c59b6c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.image-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 72, 81, 0.45) 0%,
+    rgba(8, 72, 81, 0.75) 100%
+  );
+}
+
+/* ========================================================
+   MODERN LUXURY ANIMATION SUITE
+   ======================================================== */
+
+/* Signature cubic-bezier easing for high-end luxury feel */
+:root {
+  --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Page fade-in on route transition */
+.page-enter {
+  animation: pageFadeIn 0.45s var(--ease-luxury) forwards;
+}
+
+@keyframes pageFadeIn {
+  from {
     opacity: 0;
-    transform: scale(1.04);
-    transition: opacity 1.4s ease-in-out;
-    animation: hero-kenburns 16s ease-in-out infinite alternate;
-    animation-play-state: paused;
+    transform: translateY(12px);
   }
-  
-  .hero-gallery-slide--active {
+  to {
     opacity: 1;
-    z-index: 1;
-    animation-play-state: running;
+    transform: translateY(0);
   }
-  
-  @keyframes hero-kenburns {
-    0% {
-      transform: scale(1.04) translate(0, 0);
-    }
-    100% {
-      transform: scale(1.14) translate(-1.5%, -1.5%);
-    }
+}
+
+/* Hero Zoom / Ken Burns Effect */
+@keyframes heroCinematicZoom {
+  0% {
+    transform: scale(1.02);
   }
-  
-  @media (prefers-reduced-motion: reduce) {
-    .hero-gallery-slide {
-      animation: none;
-      transition: opacity 0.4s ease-in-out;
-      transform: none;
-    }
+  100% {
+    transform: scale(1.12);
   }
+}
+
+.animate-hero-cinematic {
+  animation: heroCinematicZoom 22s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Hero Text Reveal */
+@keyframes heroTextSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-eyebrow {
+  animation: heroTextSlideUp 0.85s var(--ease-luxury) 0.15s both;
+}
+
+.animate-hero-title {
+  animation: heroTextSlideUp 1s var(--ease-luxury) 0.35s both;
+}
+
+.animate-hero-buttons {
+  animation: heroTextSlideUp 1s var(--ease-luxury) 0.55s both;
+}
+
+/* Floating animation (e.g. WhatsApp button, scroll indicator) */
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: gentleFloat 3.5s ease-in-out infinite;
+}
+
+/* Pulse glow for buttons and badges */
+@keyframes goldPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(197, 155, 108, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(197, 155, 108, 0);
+  }
+}
+
+.animate-gold-pulse {
+  animation: goldPulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Interactive Navigation Link Underline */
+.nav-link-animated {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link-animated::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-brand-gold);
+  transition: width 0.3s var(--ease-luxury), left 0.3s var(--ease-luxury);
+  transform: translateX(-50%);
+}
+
+.nav-link-animated:hover::after,
+.nav-link-animated.active::after {
+  width: 100%;
+}
+
+/* Scroll-triggered reveal classes */
+.reveal-fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.85s var(--ease-luxury), transform 0.85s var(--ease-luxury);
+  will-change: opacity, transform;
+}
+
+.reveal-fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-fade-in {
+  opacity: 0;
+  transition: opacity 0.9s var(--ease-luxury);
+  will-change: opacity;
+}
+
+.reveal-fade-in.is-visible {
+  opacity: 1;
+}
+
+.reveal-scale-up {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.85s var(--ease-luxury), transform 0.85s var(--ease-luxury);
+  will-change: opacity, transform;
+}
+
+.reveal-scale-up.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delay helpers */
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-250 { transition-delay: 250ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* Luxury card hover enhancements */
+.card-luxury {
+  transition: transform 0.5s var(--ease-luxury), box-shadow 0.5s var(--ease-luxury), border-color 0.5s var(--ease-luxury);
+}
+
+.card-luxury:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -10px rgba(8, 72, 81, 0.12);
+}
+
+/* Button micro-interaction */
+.btn-luxury {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s var(--ease-luxury);
+}
+
+.btn-luxury:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(8, 72, 81, 0.25);
+}
+
+.btn-luxury:active {
+  transform: translateY(0);
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

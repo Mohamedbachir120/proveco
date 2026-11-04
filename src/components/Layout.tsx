@@ -21,9 +21,9 @@ export default function Layout() {
   }, [location.pathname, location.hash]);
 
   return (
-    <div className="bg-white text-gray-700 antialiased">
+    <div className="bg-white text-gray-700 antialiased flex flex-col min-h-screen">
       <Navbar />
-      <main>
+      <main key={location.pathname} className="page-enter flex-grow">
         <Outlet />
       </main>
       <Footer />

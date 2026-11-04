@@ -88,32 +88,32 @@ export default function ProjectDetail() {
           <HeroGallery images={project.gallery} />
         ) : (
           <div className="absolute inset-0 z-0">
-            <img src={project.image} alt={project.imageAlt} className="w-full h-full object-cover" />
+            <img src={project.image} alt={project.imageAlt} className="w-full h-full object-cover animate-hero-cinematic" />
             <div className="absolute inset-0 image-overlay" />
           </div>
         )}
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 pb-16 w-full">
-          <span className="text-brand-gold uppercase tracking-[0.3em] text-xs mb-4 block">
+          <span className="text-brand-gold uppercase tracking-[0.3em] text-xs mb-4 block animate-hero-eyebrow">
             {STATUS_LABELS[project.status]} • {project.location}
           </span>
-          <h1 className="font-serif text-4xl md:text-6xl text-white leading-tight max-w-3xl">
+          <h1 className="font-serif text-4xl md:text-6xl text-white leading-tight max-w-3xl animate-hero-title">
             {project.heroTagline ?? project.name}
           </h1>
         </div>
       </header>
 
-      <section className="py-16 border-b border-brand-gray">
+      <section className="py-16 border-b border-brand-gray bg-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 flex flex-wrap gap-x-16 gap-y-6">
-          <div>
+          <div className="transition-transform duration-300 hover:-translate-y-0.5">
             <span className="text-brand-gold uppercase tracking-widest text-xs block mb-1">Localisation</span>
             <span className="font-serif text-lg text-brand-green">{project.location}</span>
           </div>
-          <div>
+          <div className="transition-transform duration-300 hover:-translate-y-0.5">
             <span className="text-brand-gold uppercase tracking-widest text-xs block mb-1">Programme</span>
             <span className="font-serif text-lg text-brand-green">{project.units}</span>
           </div>
           {project.deliveredRange && (
-            <div>
+            <div className="transition-transform duration-300 hover:-translate-y-0.5">
               <span className="text-brand-gold uppercase tracking-widest text-xs block mb-1">Calendrier</span>
               <span className="font-serif text-lg text-brand-green">{project.deliveredRange}</span>
             </div>
@@ -126,7 +126,7 @@ export default function ProjectDetail() {
           {project.sections?.map((section, i) => {
             const Heading = section.level === "h2" ? "h2" : "h3";
             return (
-              <div key={i}>
+              <div key={i} className="transition-all duration-500">
                 <Heading
                   className={
                     section.level === "h2"
@@ -166,7 +166,7 @@ export default function ProjectDetail() {
               {gallery.map((img, i) => (
                 <figure
                   key={i}
-                  className="group overflow-hidden cursor-zoom-in"
+                  className="group overflow-hidden cursor-zoom-in rounded-sm shadow-sm hover:shadow-xl transition-all duration-500 bg-white card-luxury"
                   onClick={() => setLightboxIndex(i)}
                 >
                   <div className="relative overflow-hidden aspect-[4/3]">
@@ -175,22 +175,24 @@ export default function ProjectDetail() {
                       alt={img.alt}
                       title={img.title}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                      <svg
-                        className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={1.5}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 10-10.6 0 7.5 7.5 0 0010.6 0zM10.5 7.5v6m-3-3h6" />
-                      </svg>
+                    <div className="absolute inset-0 bg-brand-green/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                      <div className="w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-all duration-300">
+                        <svg
+                          className="w-5 h-5 text-brand-green"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 10-10.6 0 7.5 7.5 0 0010.6 0zM10.5 7.5v6m-3-3h6" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
                   {img.caption && (
-                    <figcaption className="text-gray-500 text-sm font-light mt-3">{img.caption}</figcaption>
+                    <figcaption className="text-gray-500 text-sm font-light p-3 border-t border-brand-gray/30">{img.caption}</figcaption>
                   )}
                 </figure>
               ))}
@@ -199,15 +201,15 @@ export default function ProjectDetail() {
         </section>
       )}
 
-      <section className="py-16 bg-brand-gray/20 text-center">
+      <section className="py-20 bg-brand-gray/20 text-center">
         <div className="max-w-2xl mx-auto px-6">
-          <h2 className="font-serif text-3xl text-brand-green mb-4">Intéressé par {project.name} ?</h2>
-          <p className="text-gray-500 mb-8 font-light">
+          <h2 className="font-serif text-3xl md:text-4xl text-brand-green mb-4">Intéressé par {project.name} ?</h2>
+          <p className="text-gray-500 mb-8 font-light leading-relaxed">
             Notre équipe vous accompagne à chaque étape, de la première visite à la signature.
           </p>
           <Link
             to="/contact"
-            className="inline-block bg-brand-green text-white px-8 py-4 uppercase tracking-widest text-sm hover:bg-brand-gold transition-colors duration-300"
+            className="inline-block bg-brand-green text-white px-8 py-4 uppercase tracking-widest text-xs hover:bg-brand-gold transition-colors duration-300 font-medium btn-luxury cursor-pointer"
           >
             Échanger avec un conseiller
           </Link>
