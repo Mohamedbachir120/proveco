@@ -272,9 +272,15 @@ export const projects: Project[] = [
     area: "Hydra",
     units: "8 Appartements Exclusifs",
     status: "livre",
-    image: victoriaFacade,
+    image: victoriaAttique,
     imageAlt: "Façade de la Résidence Victoria à Hydra avec balcons vitrés et terrasse au dernier étage",
     gallery: [
+       {
+        src: victoriaAttique,
+        alt: "Dernier niveau de la Résidence Victoria à Hydra avec terrasse vitrée et plantations",
+        title: "Terrasse de l'attique de la Résidence Victoria",
+        caption: "Le dernier niveau de la Résidence Victoria, avec sa terrasse bordée de garde-corps vitrés.",
+      },
       {
         src: victoriaFacade,
         alt: "Façade de la Résidence Victoria à Hydra avec balcons vitrés et terrasse au dernier étage",
@@ -293,12 +299,7 @@ export const projects: Project[] = [
         title: "Façade et balcons de la Résidence Victoria",
         caption: "Vue d'angle de la Résidence Victoria mettant en valeur la succession des balcons et le dernier niveau.",
       },
-      {
-        src: victoriaAttique,
-        alt: "Dernier niveau de la Résidence Victoria à Hydra avec terrasse vitrée et plantations",
-        title: "Terrasse de l'attique de la Résidence Victoria",
-        caption: "Le dernier niveau de la Résidence Victoria, avec sa terrasse bordée de garde-corps vitrés.",
-      },
+     
       {
         src: victoriaTerrasse,
         alt: "Terrasse de l'attique de la Résidence Victoria à Hydra avec garde-corps vitrés et plantations",
