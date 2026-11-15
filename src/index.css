@@ -103,6 +103,15 @@ body {
   animation: heroTextSlideUp 1s var(--ease-luxury) 0.55s both;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s var(--ease-luxury) both;
+}
+
 /* Floating animation (e.g. WhatsApp button, scroll indicator) */
 @keyframes gentleFloat {
   0%, 100% {
@@ -196,6 +205,7 @@ body {
 .delay-250 { transition-delay: 250ms; }
 .delay-300 { transition-delay: 300ms; }
 .delay-400 { transition-delay: 400ms; }
+.delay-450 { transition-delay: 450ms; }
 .delay-500 { transition-delay: 500ms; }
 
 /* Luxury card hover enhancements */
@@ -222,6 +232,151 @@ body {
 
 .btn-luxury:active {
   transform: translateY(0);
+}
+
+/* ========================================================
+   IMMERSIVE LAYER
+   ======================================================== */
+
+/* Button whose gold fill slides in from the left on hover */
+.btn-fill {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.45s var(--ease-luxury), border-color 0.45s var(--ease-luxury),
+    transform 0.45s var(--ease-luxury), box-shadow 0.45s var(--ease-luxury);
+}
+
+.btn-fill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--color-brand-gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s var(--ease-luxury);
+}
+
+.btn-fill:hover {
+  color: white;
+  border-color: var(--color-brand-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -12px rgba(197, 155, 108, 0.55);
+}
+
+.btn-fill:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Gold variant fills with green instead */
+.btn-fill.btn-fill--green::before {
+  background: var(--color-brand-green);
+}
+.btn-fill.btn-fill--green:hover {
+  border-color: var(--color-brand-green);
+  box-shadow: 0 14px 30px -12px rgba(8, 72, 81, 0.45);
+}
+
+/* Gold button on green: fills white */
+.btn-fill.btn-fill--white::before {
+  background: white;
+}
+.btn-fill.btn-fill--white:hover {
+  color: var(--color-brand-green);
+  border-color: white;
+}
+
+/* Visible keyboard focus in brand gold */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-brand-gold);
+  outline-offset: 3px;
+}
+
+/* Hero vignette: deep green at the bottom so bottom-left text always reads */
+.hero-vignette {
+  background:
+    linear-gradient(to top, rgba(8, 72, 81, 0.92) 0%, rgba(8, 72, 81, 0.45) 45%, rgba(8, 72, 81, 0.25) 100%),
+    linear-gradient(to right, rgba(8, 72, 81, 0.55) 0%, rgba(8, 72, 81, 0) 60%);
+}
+
+/* Animated underline on form fields */
+.field-line {
+  position: relative;
+}
+.field-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--color-brand-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease-luxury);
+}
+.field-line:focus-within::after {
+  transform: scaleX(1);
+}
+
+/* Smooth FAQ open/close using grid row interpolation */
+.faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.6s var(--ease-luxury), opacity 0.5s var(--ease-luxury);
+  opacity: 0;
+}
+.faq-panel > div {
+  overflow: hidden;
+}
+.faq-item[data-open="true"] .faq-panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+/* Horizontal scroll rows on mobile without a visible scrollbar */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Soft, occasional pulse for the WhatsApp button */
+@keyframes softPulse {
+  0%, 88%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45);
+  }
+  94% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+}
+.animate-soft-pulse {
+  animation: softPulse 8s ease-out infinite;
+}
+
+/* Custom cursor (desktop only) */
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 80;
+  pointer-events: none;
+}
+@media (pointer: coarse) {
+  .cursor-ring {
+    display: none;
+  }
 }
 
 /* Reduced motion accessibility */

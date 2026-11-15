@@ -1,18 +1,19 @@
 import { Link } from "react-router-dom";
 import logoWhite from "./../assets/logo-white.png";
+import { GoldRule, Stagger, StaggerItem } from "./motion";
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-green text-white pt-20 pb-10 border-t border-white/10">
+    <footer className="bg-brand-green text-white pt-24 pb-10 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1">
-            <img src={logoWhite} alt="Logo proveco" width={100} className="hover:opacity-90 transition-opacity" />
+        <Stagger className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16" stagger={0.1}>
+          <StaggerItem className="col-span-1">
+            <img src={logoWhite} alt="Logo proveco" width={120} className="hover:opacity-90 transition-opacity" />
             <p className="text-gray-400 text-sm leading-relaxed mt-4">
               Promoteur immobilier de référence en Algérie.
             </p>
-          </div>
-          <div>
+          </StaggerItem>
+          <StaggerItem>
             <h5 className="text-brand-gold uppercase tracking-widest text-xs mb-6 font-semibold">
               Navigation
             </h5>
@@ -38,8 +39,8 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
-          <div>
+          </StaggerItem>
+          <StaggerItem>
             <h5 className="text-brand-gold uppercase tracking-widest text-xs mb-6 font-semibold">
               Légal
             </h5>
@@ -55,8 +56,8 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
-          <div>
+          </StaggerItem>
+          <StaggerItem>
             <h5 className="text-brand-gold uppercase tracking-widest text-xs mb-6 font-semibold">
               Suivez-nous
             </h5>
@@ -76,9 +77,10 @@ export default function Footer() {
                 IG
               </a>
             </div>
-          </div>
-        </div>
-        <div className="border-t border-white/10 pt-8 text-xs text-gray-400 text-center">
+          </StaggerItem>
+        </Stagger>
+        <GoldRule className="mb-8 !bg-white/15" />
+        <div className="text-xs text-gray-400 text-center">
           <p>&copy; {new Date().getFullYear()} PROVECO Promotion. Tous droits réservés.</p>
         </div>
       </div>

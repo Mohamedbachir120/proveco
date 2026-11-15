@@ -4,6 +4,9 @@ import { getProjectBySlug } from "../services/projects.service";
 import type { Project } from "../types/project";
 import { STATUS_LABELS } from "../types/project";
 import HeroGallery from "../components/HeroGalery";
+import { motion } from "motion/react";
+import { CurtainImage, EASE, Eyebrow, Reveal, SplitLines, Stagger, StaggerItem } from "../components/motion";
+import { setScrollLocked } from "../components/smoothScroll";
 
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -48,6 +51,7 @@ export default function ProjectDetail() {
 
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    setScrollLocked(true);
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") closeLightbox();
@@ -58,6 +62,7 @@ export default function ProjectDetail() {
 
     return () => {
       document.body.style.overflow = originalOverflow;
+      setScrollLocked(false);
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [lightboxIndex, closeLightbox, showPrev, showNext]);
@@ -83,74 +88,106 @@ export default function ProjectDetail() {
 
   return (
     <>
-      <header className="relative h-[70vh] flex items-end overflow-hidden">
+      <header className="relative h-[100svh] min-h-[620px] flex items-end overflow-hidden">
         {project.gallery && project.gallery.length > 0 ? (
           <HeroGallery images={project.gallery} />
         ) : (
           <div className="absolute inset-0 z-0">
             <img src={project.image} alt={project.imageAlt} className="w-full h-full object-cover animate-hero-cinematic" />
-            <div className="absolute inset-0 image-overlay" />
+            <div className="absolute inset-0 hero-vignette" />
           </div>
         )}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 pb-16 w-full">
-          <span className="text-brand-gold uppercase tracking-[0.3em] text-xs mb-4 block animate-hero-eyebrow">
-            {STATUS_LABELS[project.status]} • {project.location}
-          </span>
-          <h1 className="font-serif text-4xl md:text-6xl text-white leading-tight max-w-3xl animate-hero-title">
-            {project.heroTagline ?? project.name}
-          </h1>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 pb-40 md:pb-44 w-full pointer-events-none">
+          <motion.div
+            className="flex items-center gap-4 mb-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+          >
+            <motion.span
+              className="block h-px w-12 bg-brand-gold origin-left"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.9, duration: 1, ease: EASE }}
+            />
+            <span className="text-brand-gold uppercase tracking-[0.3em] text-xs">
+              {STATUS_LABELS[project.status]} • {project.location}
+            </span>
+          </motion.div>
+          <SplitLines
+            as="h1"
+            immediate
+            delay={1}
+            className="font-serif text-4xl md:text-7xl text-white leading-[1.05] max-w-4xl"
+            lines={[project.heroTagline ?? project.name]}
+          />
         </div>
       </header>
 
-      <section className="py-16 border-b border-brand-gray bg-white">
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 flex flex-wrap gap-x-16 gap-y-6">
-          <div className="transition-transform duration-300 hover:-translate-y-0.5">
-            <span className="text-brand-gold uppercase tracking-widest text-xs block mb-1">Localisation</span>
-            <span className="font-serif text-lg text-brand-green">{project.location}</span>
+      {/* Key facts: floating bar overlapping the hero */}
+      <section className="relative z-20 -mt-24 px-6 sm:px-12">
+        <motion.div
+          className="max-w-7xl mx-auto bg-white shadow-[0_40px_80px_-40px_rgba(8,72,81,0.45)] grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-brand-gray"
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.3, duration: 1.1, ease: EASE }}
+        >
+          <div className="p-8 md:p-10">
+            <span className="text-brand-gold uppercase tracking-[0.25em] text-[11px] block mb-2">Localisation</span>
+            <span className="font-serif text-xl text-brand-green">{project.location}</span>
           </div>
-          <div className="transition-transform duration-300 hover:-translate-y-0.5">
-            <span className="text-brand-gold uppercase tracking-widest text-xs block mb-1">Programme</span>
-            <span className="font-serif text-lg text-brand-green">{project.units}</span>
+          <div className="p-8 md:p-10">
+            <span className="text-brand-gold uppercase tracking-[0.25em] text-[11px] block mb-2">Programme</span>
+            <span className="font-serif text-xl text-brand-green">{project.units}</span>
           </div>
           {project.deliveredRange && (
-            <div className="transition-transform duration-300 hover:-translate-y-0.5">
-              <span className="text-brand-gold uppercase tracking-widest text-xs block mb-1">Calendrier</span>
-              <span className="font-serif text-lg text-brand-green">{project.deliveredRange}</span>
+            <div className="p-8 md:p-10">
+              <span className="text-brand-gold uppercase tracking-[0.25em] text-[11px] block mb-2">Calendrier</span>
+              <span className="font-serif text-xl text-brand-green">{project.deliveredRange}</span>
             </div>
           )}
-        </div>
+        </motion.div>
       </section>
 
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6 sm:px-12 space-y-16">
+      <section className="py-24 md:py-32 bg-white">
+        <div className="max-w-5xl mx-auto px-6 sm:px-12 space-y-20">
           {project.sections?.map((section, i) => {
             const Heading = section.level === "h2" ? "h2" : "h3";
             return (
-              <div key={i} className="transition-all duration-500">
-                <Heading
-                  className={
-                    section.level === "h2"
-                      ? "font-serif text-3xl text-brand-green mb-6"
-                      : "font-serif text-2xl text-brand-green mb-4"
-                  }
-                >
-                  {section.heading}
-                </Heading>
-                {section.paragraphs?.map((p, j) => (
-                  <p key={j} className="text-gray-500 leading-relaxed mb-4 font-light">
-                    {p}
-                  </p>
-                ))}
-                {section.bullets && (
-                  <ul className="space-y-2 mt-4">
-                    {section.bullets.map((b, k) => (
-                      <li key={k} className="flex items-start text-gray-600 font-light">
-                        <span className="text-brand-gold mr-3">—</span>
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+              <div key={i} className="grid md:grid-cols-12 gap-6 md:gap-12">
+                <div className="md:col-span-5">
+                  <div className="md:sticky md:top-32">
+                    <Reveal>
+                      <span className="font-serif text-brand-gold text-sm block mb-3">{String(i + 1).padStart(2, "0")}</span>
+                      <Heading
+                        className={
+                          section.level === "h2"
+                            ? "font-serif text-3xl md:text-4xl text-brand-green leading-tight"
+                            : "font-serif text-2xl md:text-3xl text-brand-green leading-tight"
+                        }
+                      >
+                        {section.heading}
+                      </Heading>
+                    </Reveal>
+                  </div>
+                </div>
+                <Reveal className="md:col-span-7" delay={0.12}>
+                  {section.paragraphs?.map((p, j) => (
+                    <p key={j} className="text-gray-500 leading-relaxed mb-5 font-light text-base md:text-lg">
+                      {p}
+                    </p>
+                  ))}
+                  {section.bullets && (
+                    <Stagger className="mt-4 border-t border-brand-gray">
+                      {section.bullets.map((b, k) => (
+                        <StaggerItem key={k} className="flex items-start text-gray-600 font-light py-4 border-b border-brand-gray">
+                          <span className="text-brand-gold mr-4">—</span>
+                          {b}
+                        </StaggerItem>
+                      ))}
+                    </Stagger>
+                  )}
+                </Reveal>
               </div>
             );
           })}
@@ -158,61 +195,74 @@ export default function ProjectDetail() {
       </section>
 
       {gallery.length > 0 && (
-        <section className="py-20 bg-brand-gray/10">
+        <section className="py-24 md:py-32 bg-brand-gray/30">
           <div className="max-w-7xl mx-auto px-6 sm:px-12">
-            <span className="text-brand-gold uppercase tracking-[0.3em] text-xs mb-4 block">Galerie</span>
-            <h2 className="font-serif text-3xl text-brand-green mb-10">{project.name} en images</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {gallery.map((img, i) => (
-                <figure
-                  key={i}
-                  className="group overflow-hidden cursor-zoom-in rounded-sm shadow-sm hover:shadow-xl transition-all duration-500 bg-white card-luxury"
-                  onClick={() => setLightboxIndex(i)}
-                >
-                  <div className="relative overflow-hidden aspect-[4/3]">
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      title={img.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-brand-green/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-                      <div className="w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-all duration-300">
-                        <svg
-                          className="w-5 h-5 text-brand-green"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 10-10.6 0 7.5 7.5 0 0010.6 0zM10.5 7.5v6m-3-3h6" />
-                        </svg>
+            <Eyebrow className="mb-6">Galerie</Eyebrow>
+            <SplitLines
+              className="font-serif text-4xl md:text-5xl text-brand-green mb-14"
+              lines={[`${project.name} en images`]}
+            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 md:gap-8">
+              {gallery.map((img, i) => {
+                // Mosaic rhythm: wide, narrow, narrow, wide...
+                const pattern = i % 5;
+                const span =
+                  pattern === 0 ? "lg:col-span-4" : pattern === 1 ? "lg:col-span-2" : pattern === 4 ? "lg:col-span-3" : pattern === 3 ? "lg:col-span-3" : "lg:col-span-6";
+                const aspect = pattern === 2 ? "aspect-[4/3] lg:aspect-[21/9]" : pattern === 1 ? "aspect-[4/3] lg:aspect-auto lg:h-full" : "aspect-[4/3]";
+                return (
+                  <figure
+                    key={i}
+                    className={`group cursor-zoom-in ${span} flex flex-col`}
+                    onClick={() => setLightboxIndex(i)}
+                    data-cursor="media"
+                  >
+                    <div className={`relative overflow-hidden ${aspect} flex-1`}>
+                      <CurtainImage
+                        src={img.src}
+                        alt={img.alt}
+                        title={img.title}
+                        className="absolute inset-0"
+                        imgClassName="transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
+                        delay={(i % 3) * 0.1}
+                        parallax={5}
+                      />
+                      <div className="absolute inset-0 bg-brand-green/0 group-hover:bg-brand-green/25 transition-colors duration-500 flex items-center justify-center">
+                        <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center scale-50 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500">
+                          <svg className="w-5 h-5 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 10-10.6 0 7.5 7.5 0 0010.6 0zM10.5 7.5v6m-3-3h6" />
+                          </svg>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  {img.caption && (
-                    <figcaption className="text-gray-500 text-sm font-light p-3 border-t border-brand-gray/30">{img.caption}</figcaption>
-                  )}
-                </figure>
-              ))}
+                    {img.caption && (
+                      <figcaption className="text-gray-500 text-sm font-light pt-4">{img.caption}</figcaption>
+                    )}
+                  </figure>
+                );
+              })}
             </div>
           </div>
         </section>
       )}
 
-      <section className="py-20 bg-brand-gray/20 text-center">
-        <div className="max-w-2xl mx-auto px-6">
-          <h2 className="font-serif text-3xl md:text-4xl text-brand-green mb-4">Intéressé par {project.name} ?</h2>
-          <p className="text-gray-500 mb-8 font-light leading-relaxed">
-            Notre équipe vous accompagne à chaque étape, de la première visite à la signature.
-          </p>
-          <Link
-            to="/contact"
-            className="inline-block bg-brand-green text-white px-8 py-4 uppercase tracking-widest text-xs hover:bg-brand-gold transition-colors duration-300 font-medium btn-luxury cursor-pointer"
-          >
-            Échanger avec un conseiller
-          </Link>
+      <section className="relative py-28 md:py-36 bg-brand-green text-center overflow-hidden">
+        <div aria-hidden className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px] rounded-full border border-brand-gold/10" />
+        <div className="relative max-w-3xl mx-auto px-6">
+          <SplitLines
+            className="font-serif text-4xl md:text-6xl text-white mb-6"
+            lines={[`Intéressé par ${project.name} ?`]}
+          />
+          <Reveal delay={0.15}>
+            <p className="text-white/65 mb-10 font-light leading-relaxed text-lg">
+              Notre équipe vous accompagne à chaque étape, de la première visite à la signature.
+            </p>
+            <Link
+              to="/contact"
+              className="btn-fill btn-fill--white bg-brand-gold border border-brand-gold text-white px-10 py-4 uppercase tracking-[0.2em] text-xs font-medium"
+            >
+              Échanger avec un conseiller
+            </Link>
+          </Reveal>
         </div>
       </section>
 
@@ -258,7 +308,7 @@ function Lightbox({
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center px-4 transition-opacity duration-300 ${
+      className={`fixed inset-0 z-[75] flex items-center justify-center px-4 transition-opacity duration-300 ${
         isOpen ? "opacity-100" : "opacity-0"
       }`}
       onClick={handleClose}

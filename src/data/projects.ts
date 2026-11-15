@@ -8,39 +8,39 @@
 import type { Project } from "../types/project";
 
 // --- Corallium ---
-import coralliumExterieure from "../assets/vue-exterieure-residence-corallium-tixeraine.png";
-import coralliumAcces from "../assets/acces-vehicules-residence-corallium-tixeraine.png";
-import coralliumEnsemble from "../assets/ensemble-residentiel-corallium-tixeraine-alger.png";
-import coralliumSalon from "../assets/salon-salle-a-manger-residence-corallium-tixeraine.png";
-import coralliumCuisine from "../assets/cuisine-equipee-appartement-corallium-tixeraine.png";
-import coralliumChambre from "../assets/chambre-appartement-corallium-tixeraine.png";
-import coralliumChambreEnfants from "../assets/chambre-enfants-appartement-corallium-tixeraine.png";
+import coralliumExterieure from "../assets/vue-exterieure-residence-corallium-tixeraine.webp";
+import coralliumAcces from "../assets/acces-vehicules-residence-corallium-tixeraine.webp";
+import coralliumEnsemble from "../assets/ensemble-residentiel-corallium-tixeraine-alger.webp";
+import coralliumSalon from "../assets/salon-salle-a-manger-residence-corallium-tixeraine.webp";
+import coralliumCuisine from "../assets/cuisine-equipee-appartement-corallium-tixeraine.webp";
+import coralliumChambre from "../assets/chambre-appartement-corallium-tixeraine.webp";
+import coralliumChambreEnfants from "../assets/chambre-enfants-appartement-corallium-tixeraine.webp";
 
 // --- Poirson ---
-import poirsonChantierFacade from "../assets/chantier-facade-residence-poirson-el-biar.png";
-import poirsonChantier from "../assets/chantier-residence-poirson-el-biar.png";
+import poirsonChantierFacade from "../assets/chantier-facade-residence-poirson-el-biar.webp";
+import poirsonChantier from "../assets/chantier-residence-poirson-el-biar.webp";
 
 // --- Savoie ---
-import savoieFacade from "../assets/facade-residence-savoie-hydra-alger.jpeg";
-import savoieFacadeNuit from "../assets/facade-nuit-residence-savoie-hydra.jpeg";
-import savoieLaterale from "../assets/architecture-facade-residence-savoie-hydra.jpeg";
+import savoieFacade from "../assets/facade-residence-savoie-hydra-alger.webp";
+import savoieFacadeNuit from "../assets/facade-nuit-residence-savoie-hydra.webp";
+import savoieLaterale from "../assets/architecture-facade-residence-savoie-hydra.webp";
 
 // --- Victoria ---
-import victoriaFacade from "../assets/facade-residence-victoria-hydra.png";
-import victoriaContrePlongee from "../assets/architecture-residence-victoria-hydra.jpeg";
-import victoriaAngle from "../assets/facade-angle-residence-victoria-hydra.jpeg";
-import victoriaAttique from "../assets/attique-terrasse-residence-victoria-hydra.jpeg";
-import victoriaTerrasse from "../assets/terrasse-attique-residence-victoria-hydra.png";
+import victoriaFacade from "../assets/facade-residence-victoria-hydra.webp";
+import victoriaContrePlongee from "../assets/architecture-residence-victoria-hydra.webp";
+import victoriaAngle from "../assets/facade-angle-residence-victoria-hydra.webp";
+import victoriaAttique from "../assets/attique-terrasse-residence-victoria-hydra.webp";
+import victoriaTerrasse from "../assets/terrasse-attique-residence-victoria-hydra.webp";
 
 // --- Madeleine 1 ---
-import madeleine1Facade from "../assets/facade-residence-madeleine-1-hydra.png";
-import madeleine1Entree from "../assets/entree-residence-madeleine-1-hydra.png";
-import madeleine1Angle from "../assets/vue-angle-residence-madeleine-1-hydra.jpeg";
+import madeleine1Facade from "../assets/facade-residence-madeleine-1-hydra.webp";
+import madeleine1Entree from "../assets/entree-residence-madeleine-1-hydra.webp";
+import madeleine1Angle from "../assets/vue-angle-residence-madeleine-1-hydra.webp";
 
 // --- Madeleine 2 ---
-import madeleine2Facade from "../assets/facade-residence-madeleine-2-hydra.png";
-import madeleine2Balcons from "../assets/balcons-residence-madeleine-2-hydra.png";
-import madeleine2Entree from "../assets/entree-securisee-residence-madeleine-2-hydra.jpeg";
+import madeleine2Facade from "../assets/facade-residence-madeleine-2-hydra.webp";
+import madeleine2Balcons from "../assets/balcons-residence-madeleine-2-hydra.webp";
+import madeleine2Entree from "../assets/entree-securisee-residence-madeleine-2-hydra.webp";
 
 export const projects: Project[] = [
   {

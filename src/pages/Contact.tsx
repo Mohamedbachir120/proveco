@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { submitContact } from "../services/projects.service";
 import { useInView } from "../hooks/useInView";
+import { Eyebrow, SplitLines } from "../components/motion";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -35,7 +36,7 @@ export default function Contact() {
   }
 
   return (
-    <section className="pt-40 pb-24 bg-brand-gray/30 overflow-hidden">
+    <section className="pt-44 pb-28 bg-brand-gray/30 overflow-hidden">
       <div ref={contactView.ref} className="max-w-7xl mx-auto px-6 sm:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div
@@ -43,12 +44,14 @@ export default function Contact() {
               contactView.isVisible ? "is-visible" : ""
             }`}
           >
-            <span className="text-brand-gold uppercase tracking-widest text-xs mb-3 block font-semibold">
-              Contactez-nous
-            </span>
-            <h1 className="font-serif text-4xl md:text-5xl text-brand-green mb-6">
-              Discutons de votre projet
-            </h1>
+            <Eyebrow className="mb-6">Contactez-nous</Eyebrow>
+            <SplitLines
+              as="h1"
+              immediate
+              delay={0.9}
+              className="font-serif text-5xl md:text-7xl text-brand-green mb-8 leading-[1.05]"
+              lines={["Discutons de votre projet"]}
+            />
             <p className="text-gray-500 mb-10 font-light text-base leading-relaxed">
               Notre équipe d'experts est à votre disposition pour vous guider
               dans le choix de votre futur bien d'exception.
@@ -56,7 +59,7 @@ export default function Contact() {
 
             <div className="space-y-6">
               <div className="flex items-start group p-3 -ml-3 rounded-md hover:bg-white/60 transition-all duration-300">
-                <span className="text-brand-gold mr-4 text-xl group-hover:scale-110 transition-transform duration-300">
+                <span className="text-brand-gold mr-4 text-xl group-hover:scale-110 transition-transform duration-500">
                   📍
                 </span>
                 <div>
@@ -70,7 +73,7 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start group p-3 -ml-3 rounded-md hover:bg-white/60 transition-all duration-300">
-                <span className="text-brand-gold mr-4 text-xl group-hover:scale-110 transition-transform duration-300">
+                <span className="text-brand-gold mr-4 text-xl group-hover:scale-110 transition-transform duration-500">
                   👤
                 </span>
                 <div>
@@ -84,7 +87,7 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start group p-3 -ml-3 rounded-md hover:bg-white/60 transition-all duration-300">
-                <span className="text-brand-gold mr-4 text-xl group-hover:scale-110 transition-transform duration-300">
+                <span className="text-brand-gold mr-4 text-xl group-hover:scale-110 transition-transform duration-500">
                   📞
                 </span>
                 <div>
@@ -110,7 +113,7 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start group p-3 -ml-3 rounded-md hover:bg-white/60 transition-all duration-300">
-                <span className="text-brand-gold mr-4 text-xl group-hover:scale-110 transition-transform duration-300">
+                <span className="text-brand-gold mr-4 text-xl group-hover:scale-110 transition-transform duration-500">
                   ✉️
                 </span>
                 <div>
@@ -129,13 +132,13 @@ export default function Contact() {
           </div>
 
           <div
-            className={`bg-white p-8 md:p-10 border border-brand-gray shadow-md card-luxury reveal-fade-up delay-150 ${
+            className={`bg-white p-8 md:p-12 shadow-[0_40px_80px_-40px_rgba(8,72,81,0.4)] reveal-fade-up delay-150 ${
               contactView.isVisible ? "is-visible" : ""
             }`}
           >
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
+                <div className="field-line">
                   <label className="block text-xs uppercase tracking-wider text-gray-500 mb-2 font-medium">
                     Nom
                   </label>
@@ -144,11 +147,11 @@ export default function Contact() {
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-brand-green transition-colors bg-transparent text-sm"
+                    className="w-full border-b border-gray-300 py-2 focus:outline-none  transition-colors bg-transparent text-sm"
                     placeholder="Votre nom"
                   />
                 </div>
-                <div>
+                <div className="field-line">
                   <label className="block text-xs uppercase tracking-wider text-gray-500 mb-2 font-medium">
                     Téléphone
                   </label>
@@ -157,12 +160,12 @@ export default function Contact() {
                     required
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-brand-green transition-colors bg-transparent text-sm"
+                    className="w-full border-b border-gray-300 py-2 focus:outline-none  transition-colors bg-transparent text-sm"
                     placeholder="Votre numéro"
                   />
                 </div>
               </div>
-              <div>
+              <div className="field-line">
                 <label className="block text-xs uppercase tracking-wider text-gray-500 mb-2 font-medium">
                   Message
                 </label>
@@ -170,7 +173,7 @@ export default function Contact() {
                   rows={4}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-brand-green transition-colors bg-transparent resize-none text-sm"
+                  className="w-full border-b border-gray-300 py-2 focus:outline-none  transition-colors bg-transparent resize-none text-sm"
                   placeholder="Votre message"
                 />
               </div>
@@ -178,7 +181,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="flex-1 bg-brand-green text-white py-4 uppercase tracking-widest text-xs hover:bg-brand-gold transition-colors duration-300 disabled:opacity-60 cursor-pointer font-medium text-center btn-luxury"
+                  className="btn-fill flex-1 bg-brand-green border border-brand-green text-white py-4 uppercase tracking-[0.2em] text-xs disabled:opacity-60 cursor-pointer font-medium text-center"
                 >
                   {status === "sending" ? "Envoi en cours…" : "Discutons-en"}
                 </button>
